@@ -25,6 +25,9 @@ const pageTitle = computed(() => pageTitles[route.path] ?? 'MarketDeck')
       <main class="shell-main">
         <slot />
       </main>
+      <footer class="shell-footer">
+        Simulated data for demonstration purposes only.
+      </footer>
     </div>
   </div>
 </template>
@@ -51,5 +54,15 @@ const pageTitle = computed(() => pageTitles[route.path] ?? 'MarketDeck')
   overflow-y: auto;
   overflow-x: hidden;
   padding: 20px 24px;
+}
+
+.shell-footer {
+  flex-shrink: 0;
+  padding: 6px 24px;
+  font-size: 10px;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  letter-spacing: 0.04em;
 }
 </style>

@@ -47,6 +47,9 @@ function cellClass(col: TableColumn<T>, row: T): string {
             </slot>
           </td>
         </tr>
+        <tr v-if="rows.length === 0">
+          <td :colspan="columns.length" class="dt-empty">No data available.</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -104,4 +107,11 @@ function cellClass(col: TableColumn<T>, row: T): string {
 
 .dt-row:last-child .dt-td { border-bottom: none; }
 .dt-row:hover .dt-td { background-color: var(--color-panel-elevated); }
+
+.dt-empty {
+  padding: 24px 12px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
 </style>
