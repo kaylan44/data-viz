@@ -3,7 +3,7 @@ export interface RestCountry {
   cca2: string
   cca3: string
   ccn3: string
-  capital?: string[]
+  capital?: readonly string[]
   population: number
   area: number
   currencies?: Record<string, { name: string; symbol: string }>
@@ -11,7 +11,7 @@ export interface RestCountry {
   flags: { svg: string; png: string; alt?: string }
   region: string
   subregion?: string
-  timezones: string[]
+  timezones: readonly string[]
 }
 
 const CACHE_KEY = 'restcountries_v1'

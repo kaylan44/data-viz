@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted, watch, computed } from 'vue'
 import { geoNaturalEarth1, geoPath } from 'd3-geo'
-import { zoom as d3zoom, zoomIdentity, type ZoomTransform } from 'd3-zoom'
+import { zoom as d3zoom, zoomIdentity, type ZoomTransform, type ZoomBehavior } from 'd3-zoom'
 import { select } from 'd3-selection'
+import 'd3-transition'
 import { feature } from 'topojson-client'
 import type { Topology, GeometryCollection } from 'topojson-specification'
 import type { RestCountry } from '@/data/countries/restCountriesClient'
@@ -25,7 +26,7 @@ const svgEl = ref<SVGSVGElement | null>(null)
 const paths = ref<{ id: string; d: string; hasData: boolean }[]>([])
 const transform = ref<ZoomTransform>(zoomIdentity)
 
-let zoomBehavior: ReturnType<typeof d3zoom> | null = null
+let zoomBehavior: ZoomBehavior<SVGSVGElement, unknown> | null = null
 
 const projection = geoNaturalEarth1()
   .scale(153)
@@ -51,7 +52,7 @@ onMounted(() => {
     .on('zoom', (event) => {
       transform.value = event.transform
     })
-  svg.call(zoomBehavior)
+  ;(svg as any).call(zoomBehavior)
 
   emit('ready')
 })
@@ -74,19 +75,19 @@ function handleSeaClick() {
   emit('select', null)
 }
 
-export function zoomIn() {
+function zoomIn() {
   if (!zoomBehavior || !svgEl.value) return
-  select(svgEl.value).transition().duration(300).call(zoomBehavior.scaleBy, 1.5)
+  zoomBehavior.scaleBy(select(svgEl.value) as any, 1.5)
 }
 
-export function zoomOut() {
+function zoomOut() {
   if (!zoomBehavior || !svgEl.value) return
-  select(svgEl.value).transition().duration(300).call(zoomBehavior.scaleBy, 1 / 1.5)
+  zoomBehavior.scaleBy(select(svgEl.value) as any, 1 / 1.5)
 }
 
-export function resetView() {
+function resetView() {
   if (!zoomBehavior || !svgEl.value) return
-  select(svgEl.value).transition().duration(400).call(zoomBehavior.transform, zoomIdentity)
+  zoomBehavior.transform(select(svgEl.value) as any, zoomIdentity)
 }
 
 defineExpose({ zoomIn, zoomOut, resetView })
