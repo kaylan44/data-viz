@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import AppShell from '@/app/AppShell.vue'
+import MarketDashboard from '@/app/MarketDashboard.vue'
+import { overviewDashboard } from '@/data/catalog/dashboards'
 </script>
 
 <template>
   <AppShell>
-    <p style="color: var(--color-text-muted); font-size: 13px;">Overview — coming in a later stage.</p>
+    <MarketDashboard :config="overviewDashboard" />
   </AppShell>
 </template>
