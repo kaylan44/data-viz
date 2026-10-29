@@ -7,7 +7,7 @@ import MapControls from '@/components/map/MapControls.vue'
 import { useCountries } from '@/composables/useCountries'
 import gdp from '@/data/countries/gdp-snapshot.json'
 
-const { byNumeric, loading, error } = useCountries()
+const { byNumeric } = useCountries()
 
 const mapRef = ref<InstanceType<typeof WorldMap> | null>(null)
 const selectedNumeric = ref<string | null>(null)
@@ -27,9 +27,6 @@ onUnmounted(() => window.removeEventListener('keydown', onEscape))
 <template>
   <AppShell page-title="World Map">
     <div class="map-page">
-      <div v-if="loading" class="overlay-msg">Loading country data…</div>
-      <div v-else-if="error" class="overlay-msg error">{{ error }}</div>
-
       <WorldMap
         ref="mapRef"
         :by-numeric="byNumeric"
@@ -82,17 +79,4 @@ onUnmounted(() => window.removeEventListener('keydown', onEscape))
   z-index: 5;
 }
 
-.overlay-msg {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: var(--color-text-secondary);
-  z-index: 20;
-  background: rgba(10, 14, 20, 0.7);
-}
-
-.overlay-msg.error { color: var(--color-negative); }
 </style>
