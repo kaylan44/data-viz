@@ -1,14 +1,22 @@
+export type InstrumentGroup = 'equities' | 'oil' | 'indices' | 'rates' | 'fx' | 'commodities' | 'crypto'
+
+export type MeanReverts = boolean
+
 export interface Instrument {
   id: string
   symbol: string
   name: string
-  group: string
+  group: InstrumentGroup
   currency: string
   unit?: string
   decimals: number
   basePrice: number
   annualVol: number
   drift: number
+  meanReverts?: boolean
+  meanReversionSpeed?: number
+  correlationGroup?: string
+  correlationBeta?: number
 }
 
 export interface Quote {
