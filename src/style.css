@@ -1,0 +1,64 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@import 'tailwindcss';
+
+@theme {
+  /* Canvas */
+  --color-canvas: #0A0E14;
+  --color-panel: #0F1520;
+  --color-panel-elevated: #141B28;
+  --color-border: #1E2736;
+
+  /* Text */
+  --color-text-primary: #E6EAF2;
+  --color-text-secondary: #8B96A9;
+  --color-text-muted: #5B667A;
+
+  /* Accent */
+  --color-accent: #F5B800;
+  --color-positive: #22C55E;
+  --color-negative: #EF4444;
+
+  /* Chart palette (8 series) */
+  --color-series-1: #60A5FA;
+  --color-series-2: #F5B800;
+  --color-series-3: #A78BFA;
+  --color-series-4: #34D399;
+  --color-series-5: #FB923C;
+  --color-series-6: #F472B6;
+  --color-series-7: #38BDF8;
+  --color-series-8: #A3E635;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Radii */
+  --radius-panel: 6px;
+  --radius-control: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tabular numbers for all numeric content */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+}
