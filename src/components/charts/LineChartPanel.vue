@@ -54,6 +54,8 @@ function resetZoom() {
   chartRef.value?.dispatchAction({ type: 'dataZoom', start: 0, end: 100 })
 }
 
+const hasData = computed(() => props.series.some((s) => s.points.length > 0))
+
 const activeSeries = computed(() => {
   if (props.mode !== 'normalized100') return props.series
   return props.series.map((s) => {
@@ -139,7 +141,8 @@ const option = computed(() => ({
       </template>
     </PanelHeader>
     <div class="chart-area">
-      <VChart ref="chartRef" :option="option" autoresize />
+      <div v-if="!hasData" class="chart-empty">No data for this range.</div>
+      <VChart v-else ref="chartRef" :option="option" autoresize />
     </div>
   </Panel>
 </template>
@@ -154,5 +157,14 @@ const option = computed(() => ({
 .chart-area :deep(.echarts) {
   width: 100% !important;
   height: 100% !important;
+}
+
+.chart-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 12px;
+  color: var(--color-text-muted);
 }
 </style>

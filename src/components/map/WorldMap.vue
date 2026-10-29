@@ -7,7 +7,6 @@ import 'd3-transition'
 import { feature } from 'topojson-client'
 import type { Topology, GeometryCollection } from 'topojson-specification'
 import type { RestCountry } from '@/data/countries/restCountriesClient'
-import worldData from 'world-atlas/countries-110m.json'
 
 const props = defineProps<{
   byNumeric: ReadonlyMap<string, RestCountry>
@@ -34,8 +33,9 @@ const projection = geoNaturalEarth1()
 
 const pathGen = geoPath(projection)
 
-onMounted(() => {
-  const world = worldData as unknown as Topology<{ countries: GeometryCollection }>
+onMounted(async () => {
+  const { default: rawData } = await import("world-atlas/countries-110m.json")
+  const world = rawData as unknown as Topology<{ countries: GeometryCollection }>
 
   const geojson = feature(world, world.objects.countries)
 
