@@ -1,0 +1,1526 @@
+{
+  "AFE": {
+    "gdp": 1358694050872.54,
+    "gdpPerCapita": 1722.38561960923,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "AFW": {
+    "gdp": 852526995230.254,
+    "gdpPerCapita": 1600.05837434388,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ARB": {
+    "gdp": 3797527236194.65,
+    "gdpPerCapita": 7544.41435641482,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CSS": {
+    "gdp": 95141207521.3621,
+    "gdpPerCapita": 20880.0606776787,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CEB": {
+    "gdp": 2762562481345.2,
+    "gdpPerCapita": 27676.9389653713,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "EAR": {
+    "gdp": 16406032169247.4,
+    "gdpPerCapita": 4566.42669968306,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "EAS": {
+    "gdp": 33656980597208.3,
+    "gdpPerCapita": 14077.2712026283,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "EAP": {
+    "gdp": 23247334500847.4,
+    "gdpPerCapita": 10843.4363994141,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TEA": {
+    "gdp": 23218679986475.4,
+    "gdpPerCapita": 10965.8265646099,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "EMU": {
+    "gdp": 18010000307247,
+    "gdpPerCapita": 50214.0783015992,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ECS": {
+    "gdp": 32268612230366.9,
+    "gdpPerCapita": 34603.4808924641,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ECA": {
+    "gdp": 2815874458069.5,
+    "gdpPerCapita": 11117.61379372,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TEC": {
+    "gdp": 7077191807196.39,
+    "gdpPerCapita": 15300.0702229683,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "EUU": {
+    "gdp": 21243212570163.3,
+    "gdpPerCapita": 47089.1638419269,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "FCV": {
+    "gdp": 1878671727974.76,
+    "gdpPerCapita": 1702.54071878327,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "HPC": {
+    "gdp": 1285481386975.21,
+    "gdpPerCapita": 1331.89997509038,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "IBD": {
+    "gdp": 43056359078690,
+    "gdpPerCapita": 8599.35834895508,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "IBT": {
+    "gdp": 46251403468584,
+    "gdpPerCapita": 6613.20946974029,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "IDB": {
+    "gdp": 1270032242274.1,
+    "gdpPerCapita": 1841.20446420686,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "IDX": {
+    "gdp": 1925012147619.92,
+    "gdpPerCapita": 1484.11159862857,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "IDA": {
+    "gdp": 3195044389894.02,
+    "gdpPerCapita": 1608.08422318375,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LTE": {
+    "gdp": 31873985161936.8,
+    "gdpPerCapita": 13677.3231696707,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LCN": {
+    "gdp": 7395989651242.09,
+    "gdpPerCapita": 11095.2176548294,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LAC": {
+    "gdp": 6523496128943.99,
+    "gdpPerCapita": 10407.4817975955,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TLA": {
+    "gdp": 7050566084338.85,
+    "gdpPerCapita": 10822.5929247606,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LDC": {
+    "gdp": 1653686211542.1,
+    "gdpPerCapita": 1361.99182021439,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LMY": {
+    "gdp": 41478597585191.8,
+    "gdpPerCapita": 6107.26169428605,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MEA": {
+    "gdp": 5135569539885.64,
+    "gdpPerCapita": 6202.19002141299,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MNA": {
+    "gdp": 2132889870483.32,
+    "gdpPerCapita": 2829.12883889291,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TMN": {
+    "gdp": 2115722770483.32,
+    "gdpPerCapita": 2826.65540584536,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MIC": {
+    "gdp": 40836798203180.8,
+    "gdpPerCapita": 6778.79773310904,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "NAC": {
+    "gdp": 33099237425506.2,
+    "gdpPerCapita": 86308.0717272746,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "OED": {
+    "gdp": 72543267888365.3,
+    "gdpPerCapita": 51733.7140199057,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "OSS": {
+    "gdp": 228636677706.691,
+    "gdpPerCapita": 17540.3099815121,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PSS": {
+    "gdp": 13005809518.6945,
+    "gdpPerCapita": 4719.69017777464,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PST": {
+    "gdp": 67379697065259.8,
+    "gdpPerCapita": 59490.0240628251,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PRE": {
+    "gdp": 1665770125125.74,
+    "gdpPerCapita": 1470.05803145865,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SST": {
+    "gdp": 337311651764.51,
+    "gdpPerCapita": 16577.8450757077,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SAS": {
+    "gdp": 4578021773987.28,
+    "gdpPerCapita": 2705.28227429085,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TSA": {
+    "gdp": 4578021773987.28,
+    "gdpPerCapita": 2705.28227429085,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SSF": {
+    "gdp": 2211221046102.8,
+    "gdpPerCapita": 1673.07077574497,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SSA": {
+    "gdp": 2208834023249.31,
+    "gdpPerCapita": 1671.41989803328,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TSS": {
+    "gdp": 2211221046102.8,
+    "gdpPerCapita": 1673.07077574497,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "WLD": {
+    "gdp": 118350166039396,
+    "gdpPerCapita": 14405.8484595528,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "AFG": {
+    "gdp": 17778508875.7396,
+    "gdpPerCapita": 416.871146273728,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "ALB": {
+    "gdp": 30540188271.3421,
+    "gdpPerCapita": 12998.147869552,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "DZA": {
+    "gdp": 287031225987.736,
+    "gdpPerCapita": 6051.00322704182,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ASM": {
+    "gdp": 871000000,
+    "gdpPerCapita": 18017.4589383973,
+    "year": "2022",
+    "source": "World Bank"
+  },
+  "AND": {
+    "gdp": 4500982731.80784,
+    "gdpPerCapita": 54291.5026031052,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "AGO": {
+    "gdp": 122174889423.635,
+    "gdpPerCapita": 3129.47662331063,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ATG": {
+    "gdp": 2338196296.2963,
+    "gdpPerCapita": 24819.2454680158,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ARG": {
+    "gdp": 683097891618.597,
+    "gdpPerCapita": 14898.0885943842,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ARM": {
+    "gdp": 29243452882.3545,
+    "gdpPerCapita": 9474.01849300368,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ABW": {
+    "gdp": 4167588070.29217,
+    "gdpPerCapita": 38590.5650288641,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "AUS": {
+    "gdp": 1798518933689.21,
+    "gdpPerCapita": 65129.7227990563,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "AUT": {
+    "gdp": 579470021095.418,
+    "gdpPerCapita": 62930.0351324599,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "AZE": {
+    "gdp": 75937647058.8235,
+    "gdpPerCapita": 7410.72281660142,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BHS": {
+    "gdp": 15832800000,
+    "gdpPerCapita": 39455.4466548546,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "BHR": {
+    "gdp": 48965725531.9149,
+    "gdpPerCapita": 30596.5794898885,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BGD": {
+    "gdp": 456319229255.578,
+    "gdpPerCapita": 2597.34352335275,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BRB": {
+    "gdp": 8016550000,
+    "gdpPerCapita": 28364.8181499736,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BLR": {
+    "gdp": 93397215864.198,
+    "gdpPerCapita": 10279.2547190723,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BEL": {
+    "gdp": 725466462859.646,
+    "gdpPerCapita": 60750.2735864647,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BLZ": {
+    "gdp": 3326500000,
+    "gdpPerCapita": 7865.47937690933,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BEN": {
+    "gdp": 24566420903.5337,
+    "gdpPerCapita": 1658.27312662991,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BMU": {
+    "gdp": 9194499000,
+    "gdpPerCapita": 142250.433195123,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "BTN": {
+    "gdp": 3579320145.13077,
+    "gdpPerCapita": 4492.78400306618,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BOL": {
+    "gdp": 64768947525.3256,
+    "gdpPerCapita": 5147.81081955367,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BIH": {
+    "gdp": 32599982936.3931,
+    "gdpPerCapita": 10381.8460703874,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BWA": {
+    "gdp": 19928479839.4476,
+    "gdpPerCapita": 7778.1151090571,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BRA": {
+    "gdp": 2279920092492.13,
+    "gdpPerCapita": 10713.2856869511,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BRN": {
+    "gdp": 15031980994.1121,
+    "gdpPerCapita": 32234.6428368582,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BGR": {
+    "gdp": 130777235529.606,
+    "gdpPerCapita": 20328.1667065538,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BFA": {
+    "gdp": 27627297461.3181,
+    "gdpPerCapita": 1147.57131635601,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "BDI": {
+    "gdp": 3364713864.08488,
+    "gdpPerCapita": 233.823013385395,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CPV": {
+    "gdp": 3056630435.32463,
+    "gdpPerCapita": 5796.47207860911,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "KHM": {
+    "gdp": 51267065842.9641,
+    "gdpPerCapita": 2872.42926639909,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CMR": {
+    "gdp": 58933453923.761,
+    "gdpPerCapita": 1972.3815800786,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CAN": {
+    "gdp": 2319899772425.92,
+    "gdpPerCapita": 55697.6639660837,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CYM": {
+    "gdp": 7765336505.34319,
+    "gdpPerCapita": 104292.900672109,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "CAF": {
+    "gdp": 3066109226.40165,
+    "gdpPerCapita": 556.131398031455,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TCD": {
+    "gdp": 21472835225.4338,
+    "gdpPerCapita": 1022.33559390754,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CHI": {
+    "gdp": 12507320838.3932,
+    "gdpPerCapita": 74585.5224096294,
+    "year": "2023",
+    "source": "World Bank"
+  },
+  "CHL": {
+    "gdp": 357371159574.862,
+    "gdpPerCapita": 17994.5911957485,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CHN": {
+    "gdp": 19498039388042.6,
+    "gdpPerCapita": 13861.970224368,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "COL": {
+    "gdp": 457410034202.523,
+    "gdpPerCapita": 8561.62091854449,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "COM": {
+    "gdp": 1814920856.27026,
+    "gdpPerCapita": 2055.75921566281,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "COD": {
+    "gdp": 91030531316.9936,
+    "gdpPerCapita": 806.776000708534,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "COG": {
+    "gdp": 16306633778.765,
+    "gdpPerCapita": 2514.73393584747,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CRI": {
+    "gdp": 102904921157.478,
+    "gdpPerCapita": 19970.0989059622,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CIV": {
+    "gdp": 99773555666.1988,
+    "gdpPerCapita": 3050.10202257321,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "HRV": {
+    "gdp": 105060182186.274,
+    "gdpPerCapita": 27103.9116109268,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CUW": {
+    "gdp": 3561178212.2905,
+    "gdpPerCapita": 22832.895498987,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "CYP": {
+    "gdp": 41225787247.3309,
+    "gdpPerCapita": 41783.08984375,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CZE": {
+    "gdp": 391026962800.475,
+    "gdpPerCapita": 35917.2724081665,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "DNK": {
+    "gdp": 462526660468.393,
+    "gdpPerCapita": 76970.1535217919,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "DJI": {
+    "gdp": 4624533092.31886,
+    "gdpPerCapita": 3905.604954681,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "DMA": {
+    "gdp": 723859259.259259,
+    "gdpPerCapita": 10989.0431185083,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "DOM": {
+    "gdp": 127407463759.043,
+    "gdpPerCapita": 11059.2081531834,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ECU": {
+    "gdp": 130320560400,
+    "gdpPerCapita": 7125.27618527738,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "EGY": {
+    "gdp": 365254630179.737,
+    "gdpPerCapita": 3085.80712036204,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SLV": {
+    "gdp": 36708110000,
+    "gdpPerCapita": 5766.72574029107,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "GNQ": {
+    "gdp": 12823210425.9217,
+    "gdpPerCapita": 6615.25245207167,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "EST": {
+    "gdp": 47030833798.5866,
+    "gdpPerCapita": 34417.6320815138,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SWZ": {
+    "gdp": 5160679612.81734,
+    "gdpPerCapita": 4108.25221093363,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ETH": {
+    "gdp": 126358758448.356,
+    "gdpPerCapita": 932.729352775179,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "FRO": {
+    "gdp": 4052937169.76536,
+    "gdpPerCapita": 74175.2776311377,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "FJI": {
+    "gdp": 6198013062.06553,
+    "gdpPerCapita": 6642.00449450523,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "FIN": {
+    "gdp": 317039368819.607,
+    "gdpPerCapita": 56148.580949046,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "FRA": {
+    "gdp": 3366315927447.33,
+    "gdpPerCapita": 48985.7307807924,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PYF": {
+    "gdp": 6323716355.05009,
+    "gdpPerCapita": 22439.8838746025,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "GAB": {
+    "gdp": 21427119323.2764,
+    "gdpPerCapita": 8263.03321595,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "GMB": {
+    "gdp": 2593673987.53306,
+    "gdpPerCapita": 919.060423427951,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "GEO": {
+    "gdp": 38143612855.1367,
+    "gdpPerCapita": 9691.53472415196,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "DEU": {
+    "gdp": 5050922925047.05,
+    "gdpPerCapita": 60496.4350820414,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "GHA": {
+    "gdp": 114209905278.717,
+    "gdpPerCapita": 3257.1588903576,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "GRC": {
+    "gdp": 280635521324.441,
+    "gdpPerCapita": 26948.0070432791,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "GRL": {
+    "gdp": 3326543974.39193,
+    "gdpPerCapita": 58498.9707973609,
+    "year": "2023",
+    "source": "World Bank"
+  },
+  "GRD": {
+    "gdp": 1420173228.56948,
+    "gdpPerCapita": 12106.8790105068,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "GUM": {
+    "gdp": 6910000000,
+    "gdpPerCapita": 41833.1517132825,
+    "year": "2022",
+    "source": "World Bank"
+  },
+  "GTM": {
+    "gdp": 123306008821.471,
+    "gdpPerCapita": 6598.18032988711,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "GIN": {
+    "gdp": 28346024753.2924,
+    "gdpPerCapita": 1877.2541220972,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "GNB": {
+    "gdp": 2527930272.92988,
+    "gdpPerCapita": 1123.76679992349,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "GUY": {
+    "gdp": 27097477218.2254,
+    "gdpPerCapita": 32413.7930757518,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "HTI": {
+    "gdp": 32077278409.2339,
+    "gdpPerCapita": 2694.18969101404,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "HND": {
+    "gdp": 39601409103.3005,
+    "gdpPerCapita": 3598.21450440452,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "HKG": {
+    "gdp": 427310315921.993,
+    "gdpPerCapita": 56983.0663059906,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "HUN": {
+    "gdp": 246490213513.054,
+    "gdpPerCapita": 25907.4743259406,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ISL": {
+    "gdp": 38582528789.0033,
+    "gdpPerCapita": 98323.4849517418,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "IND": {
+    "gdp": 3956067115771.63,
+    "gdpPerCapita": 2702.47987141553,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "IDN": {
+    "gdp": 1445642584163.81,
+    "gdpPerCapita": 5059.62596411213,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "IRN": {
+    "gdp": 362682115433.364,
+    "gdpPerCapita": 3924.38017821898,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "IRQ": {
+    "gdp": 254367293538.462,
+    "gdpPerCapita": 5409.67899716967,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "IRL": {
+    "gdp": 721701359046.313,
+    "gdpPerCapita": 131592.462547877,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "IMN": {
+    "gdp": 7576129932.79381,
+    "gdpPerCapita": 90015.2074234398,
+    "year": "2023",
+    "source": "World Bank"
+  },
+  "ISR": {
+    "gdp": 610777842873.595,
+    "gdpPerCapita": 60336.8477964194,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ITA": {
+    "gdp": 2551556954100.35,
+    "gdpPerCapita": 43308.6403060733,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "JAM": {
+    "gdp": 22704903217.5631,
+    "gdpPerCapita": 8002.92104076242,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "JPN": {
+    "gdp": 4435162999976.94,
+    "gdpPerCapita": 35951.0449549304,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "JOR": {
+    "gdp": 61610052535.2113,
+    "gdpPerCapita": 5347.77731384797,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "KAZ": {
+    "gdp": 306239209650.024,
+    "gdpPerCapita": 14692.1331757237,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "KEN": {
+    "gdp": 135941278878.815,
+    "gdpPerCapita": 2362.86091198611,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "KIR": {
+    "gdp": 349227254.158833,
+    "gdpPerCapita": 2558.66636011102,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "KOR": {
+    "gdp": 1872374961553.15,
+    "gdpPerCapita": 36226.9663637512,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "XKX": {
+    "gdp": 12456403306.8191,
+    "gdpPerCapita": 7899.41841135202,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "KWT": {
+    "gdp": 157209026926.418,
+    "gdpPerCapita": 32312.3119953634,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "KGZ": {
+    "gdp": 22623752095.4613,
+    "gdpPerCapita": 3080.96893823359,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LAO": {
+    "gdp": 18302970218.5902,
+    "gdpPerCapita": 2324.76353098791,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LVA": {
+    "gdp": 48618869160.3254,
+    "gdpPerCapita": 26311.9730706362,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LBN": {
+    "gdp": 25971643441.3408,
+    "gdpPerCapita": 4473.27134441128,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "LSO": {
+    "gdp": 2573572920.05159,
+    "gdpPerCapita": 1088.96276223185,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LBR": {
+    "gdp": 5245938900,
+    "gdpPerCapita": 915.328972645548,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LBY": {
+    "gdp": 48098909613.6316,
+    "gdpPerCapita": 6448.82415074121,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LIE": {
+    "gdp": 8905764270.4054,
+    "gdpPerCapita": 220167.225473557,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "LTU": {
+    "gdp": 95210150818.3512,
+    "gdpPerCapita": 32958.6706396386,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LUX": {
+    "gdp": 101157829491.107,
+    "gdpPerCapita": 147252.179121515,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MAC": {
+    "gdp": 52061007670.169,
+    "gdpPerCapita": 75901.7461294198,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MDG": {
+    "gdp": 19620352035.7899,
+    "gdpPerCapita": 599.265294255357,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MWI": {
+    "gdp": 14918276698.303,
+    "gdpPerCapita": 671.506847203876,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MYS": {
+    "gdp": 472193128644.597,
+    "gdpPerCapita": 13124.5554178269,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MDV": {
+    "gdp": 7741066860.6337,
+    "gdpPerCapita": 14614.7208116541,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MLI": {
+    "gdp": 30069148580.7688,
+    "gdpPerCapita": 1193.27601004701,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MLT": {
+    "gdp": 27771821560.9411,
+    "gdpPerCapita": 47906.9000057635,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MHL": {
+    "gdp": 308000000,
+    "gdpPerCapita": 8489.05793506422,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MRT": {
+    "gdp": 11679910946.4371,
+    "gdpPerCapita": 2197.51046251309,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MUS": {
+    "gdp": 16157804491.7614,
+    "gdpPerCapita": 12991.2935987166,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MEX": {
+    "gdp": 1832641364775.52,
+    "gdpPerCapita": 13889.2339628708,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "FSM": {
+    "gdp": 501797600,
+    "gdpPerCapita": 4414.00737137479,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MDA": {
+    "gdp": 20351796275.2943,
+    "gdpPerCapita": 8621.71721623786,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MCO": {
+    "gdp": 11125788838.2812,
+    "gdpPerCapita": 288001.574856495,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "MNG": {
+    "gdp": 25369107325.4549,
+    "gdpPerCapita": 7108.22743246244,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MNE": {
+    "gdp": 9232801464.79257,
+    "gdpPerCapita": 14816.8380299947,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MAR": {
+    "gdp": 182374250612.28,
+    "gdpPerCapita": 4672.46826171875,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MOZ": {
+    "gdp": 22337997046.1913,
+    "gdpPerCapita": 626.914419215727,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MMR": {
+    "gdp": 81665773809.5238,
+    "gdpPerCapita": 1488.87527836542,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "NAM": {
+    "gdp": 15080340653.5276,
+    "gdpPerCapita": 4875.92558158247,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "NRU": {
+    "gdp": 176040043.932346,
+    "gdpPerCapita": 14639.5046929186,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "NPL": {
+    "gdp": 45489810283.1132,
+    "gdpPerCapita": 1535.87781246307,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "NLD": {
+    "gdp": 1332767651100.39,
+    "gdpPerCapita": 73683.917132794,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "NCL": {
+    "gdp": 8548919387.12607,
+    "gdpPerCapita": 29213.1923192946,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "NZL": {
+    "gdp": 264057413739.965,
+    "gdpPerCapita": 49591.0405731713,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "NIC": {
+    "gdp": 22237167113.0916,
+    "gdpPerCapita": 3173.33724815085,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "NER": {
+    "gdp": 21646191388.2507,
+    "gdpPerCapita": 775.353622143879,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "NGA": {
+    "gdp": 290794361542.112,
+    "gdpPerCapita": 1224.25410237743,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MKD": {
+    "gdp": 19101199817.0174,
+    "gdpPerCapita": 10489.9255355525,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MNP": {
+    "gdp": 1096000000,
+    "gdpPerCapita": 23785.754590043,
+    "year": "2022",
+    "source": "World Bank"
+  },
+  "NOR": {
+    "gdp": 530755719438.879,
+    "gdpPerCapita": 94594.1929573987,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "OMN": {
+    "gdp": 109604780696.23,
+    "gdpPerCapita": 19947.3966227092,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PAK": {
+    "gdp": 407307214476.222,
+    "gdpPerCapita": 1595.90912252837,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PLW": {
+    "gdp": 345000000,
+    "gdpPerCapita": 19532.3557719527,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PAN": {
+    "gdp": 90462600000,
+    "gdpPerCapita": 19789.7308555826,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PNG": {
+    "gdp": 32498658653.8415,
+    "gdpPerCapita": 3019.5309140573,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PRY": {
+    "gdp": 49278227554.3339,
+    "gdpPerCapita": 7026.61906146401,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PER": {
+    "gdp": 334854659181.893,
+    "gdpPerCapita": 9684.41170314988,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PHL": {
+    "gdp": 487086123720.417,
+    "gdpPerCapita": 4170.72347271451,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "POL": {
+    "gdp": 1035491784197.44,
+    "gdpPerCapita": 28419.5777395638,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PRT": {
+    "gdp": 346639825141.821,
+    "gdpPerCapita": 32081.8106150292,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "PRI": {
+    "gdp": 129368484000,
+    "gdpPerCapita": 40620.1526923687,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "QAT": {
+    "gdp": 215559615384.615,
+    "gdpPerCapita": 72524.9066385222,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ROU": {
+    "gdp": 428677977854.826,
+    "gdpPerCapita": 22537.9532108047,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "RUS": {
+    "gdp": 2561310169358.74,
+    "gdpPerCapita": 17546.609375,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "RWA": {
+    "gdp": 16372132990.2271,
+    "gdpPerCapita": 1123.73874633225,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "WSM": {
+    "gdp": 1287936621.64619,
+    "gdpPerCapita": 5872.78333308796,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SMR": {
+    "gdp": 2027243193.5116,
+    "gdpPerCapita": 59871.3288101478,
+    "year": "2023",
+    "source": "World Bank"
+  },
+  "STP": {
+    "gdp": 981293586.906408,
+    "gdpPerCapita": 4084.40062145233,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SAU": {
+    "gdp": 1276942933333.33,
+    "gdpPerCapita": 34536.6555456551,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SEN": {
+    "gdp": 37006536238.3731,
+    "gdpPerCapita": 1954.71174194867,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SRB": {
+    "gdp": 99953324472.9042,
+    "gdpPerCapita": 15262.0464193413,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SYC": {
+    "gdp": 2387022853.48583,
+    "gdpPerCapita": 19449.3836346926,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SLE": {
+    "gdp": 7464157904.43509,
+    "gdpPerCapita": 846.296172499617,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SGP": {
+    "gdp": 603869516998.738,
+    "gdpPerCapita": 98813.9788172877,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SXM": {
+    "gdp": 1887728480.44693,
+    "gdpPerCapita": 42978.1317407037,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SVK": {
+    "gdp": 154530066506.895,
+    "gdpPerCapita": 28543.6653439813,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SVN": {
+    "gdp": 79648204979.3618,
+    "gdpPerCapita": 37376.2216079138,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SLB": {
+    "gdp": 1749572442.95016,
+    "gdpPerCapita": 2086.18955928928,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SOM": {
+    "gdp": 12995200000.2658,
+    "gdpPerCapita": 661.173877723116,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ZAF": {
+    "gdp": 427184325997.307,
+    "gdpPerCapita": 6597.71450918774,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ESP": {
+    "gdp": 1906453309985.88,
+    "gdpPerCapita": 38627.2472148623,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LKA": {
+    "gdp": 108825231671.196,
+    "gdpPerCapita": 5002.07904353724,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "KNA": {
+    "gdp": 1183514814.81481,
+    "gdpPerCapita": 25223.0257622185,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "LCA": {
+    "gdp": 2656444444.44444,
+    "gdpPerCapita": 14745.8184305461,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "MAF": {
+    "gdp": 649206262.847519,
+    "gdpPerCapita": 21668.3776525323,
+    "year": "2021",
+    "source": "World Bank"
+  },
+  "VCT": {
+    "gdp": 1255222222.22222,
+    "gdpPerCapita": 12561.769166789,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SDN": {
+    "gdp": 60162634574.4689,
+    "gdpPerCapita": 1164.53991699219,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SUR": {
+    "gdp": 4523657796.86421,
+    "gdpPerCapita": 7069.87230892274,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SWE": {
+    "gdp": 668998664082.081,
+    "gdpPerCapita": 63133.2126736715,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "CHE": {
+    "gdp": 1043529899250.92,
+    "gdpPerCapita": 114769.012314293,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "SYR": {
+    "gdp": 23737634644.3994,
+    "gdpPerCapita": 1056.78264718197,
+    "year": "2022",
+    "source": "World Bank"
+  },
+  "TJK": {
+    "gdp": 17660626562.4832,
+    "gdpPerCapita": 1637.2542942547,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TZA": {
+    "gdp": 90143496090.4411,
+    "gdpPerCapita": 1318.81921386719,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "THA": {
+    "gdp": 577009981112.015,
+    "gdpPerCapita": 8056.56359761558,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TLS": {
+    "gdp": 1902180257.82737,
+    "gdpPerCapita": 1340.9640193437,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TGO": {
+    "gdp": 11889949067.4697,
+    "gdpPerCapita": 1383.89974929887,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TON": {
+    "gdp": 679218218.578017,
+    "gdpPerCapita": 6547.18646814228,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TTO": {
+    "gdp": 25942749718.4685,
+    "gdpPerCapita": 18967.2704636681,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TUN": {
+    "gdp": 57502836548.0878,
+    "gdpPerCapita": 4656.63818386852,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TUR": {
+    "gdp": 1597293229287,
+    "gdpPerCapita": 18599.4420922378,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TKM": {
+    "gdp": 49828621355.6516,
+    "gdpPerCapita": 6540.17876401136,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "TCA": {
+    "gdp": 1745378000,
+    "gdpPerCapita": 37506.7798431288,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "TUV": {
+    "gdp": 57345434.7234984,
+    "gdpPerCapita": 6041.44908591428,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "UGA": {
+    "gdp": 61985829288.1496,
+    "gdpPerCapita": 1206.30450825002,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "UKR": {
+    "gdp": 214233312784.397,
+    "gdpPerCapita": 5865.884765625,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ARE": {
+    "gdp": 552324919095.872,
+    "gdpPerCapita": 50273.5126243239,
+    "year": "2024",
+    "source": "World Bank"
+  },
+  "GBR": {
+    "gdp": 4002587541846.01,
+    "gdpPerCapita": 57601.9621201954,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "USA": {
+    "gdp": 30769700000000,
+    "gdpPerCapita": 90026.5163005744,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "URY": {
+    "gdp": 85347696277.6859,
+    "gdpPerCapita": 25215.8238152781,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "UZB": {
+    "gdp": 147038081129.405,
+    "gdpPerCapita": 3968.2720079072,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "VUT": {
+    "gdp": 1353658840.63993,
+    "gdpPerCapita": 4038.73520713411,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "VEN": {
+    "gdp": 99661244155.6306,
+    "gdpPerCapita": 3494.8138870244,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "VNM": {
+    "gdp": 514697215165.065,
+    "gdpPerCapita": 5065.99091899299,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "VIR": {
+    "gdp": 4672000000,
+    "gdpPerCapita": 44320.909185774,
+    "year": "2022",
+    "source": "World Bank"
+  },
+  "PSE": {
+    "gdp": 17167100000,
+    "gdpPerCapita": 3171.10844621579,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ZMB": {
+    "gdp": 28879806220.1264,
+    "gdpPerCapita": 1317.87771619597,
+    "year": "2025",
+    "source": "World Bank"
+  },
+  "ZWE": {
+    "gdp": 51215643905.5886,
+    "gdpPerCapita": 3021.43019873632,
+    "year": "2025",
+    "source": "World Bank"
+  }
+}
