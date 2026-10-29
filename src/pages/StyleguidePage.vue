@@ -2,7 +2,10 @@
 import { ref, computed } from 'vue'
 import AppShell from '@/app/AppShell.vue'
 import { useLiveQuotes } from '@/composables/useLiveQuotes'
+import { useHistory } from '@/composables/useHistory'
+import { useTickLog } from '@/composables/useTickLog'
 import { ALL_INSTRUMENTS } from '@/data/catalog'
+import { equities } from '@/data/catalog'
 import Panel from '@/components/ui/Panel.vue'
 import PanelHeader from '@/components/ui/PanelHeader.vue'
 import SegmentedControl from '@/components/ui/SegmentedControl.vue'
@@ -11,9 +14,17 @@ import LiveBadge from '@/components/ui/LiveBadge.vue'
 import IconButton from '@/components/ui/IconButton.vue'
 import Skeleton from '@/components/ui/Skeleton.vue'
 import StateMessage from '@/components/ui/StateMessage.vue'
+import Sparkline from '@/components/data/Sparkline.vue'
+import PriceChange from '@/components/data/PriceChange.vue'
+import FlashValue from '@/components/data/FlashValue.vue'
+import DataTable from '@/components/data/DataTable.vue'
+import TickLog from '@/components/data/TickLog.vue'
+import LineChartPanel from '@/components/charts/LineChartPanel.vue'
+import type { TableColumn } from '@/components/data/types'
+import type { TimeRange } from '@/types'
 import { ZoomIn, ZoomOut, RotateCcw, Settings } from '@lucide/vue'
 
-// Debug data layer
+// Stage 2 debug (kept)
 const debugIds = ALL_INSTRUMENTS.slice(0, 10).map((i) => i.id)
 const { quotes } = useLiveQuotes(debugIds)
 const debugRows = computed(() =>
@@ -24,7 +35,7 @@ const debugRows = computed(() =>
   }),
 )
 
-const range = ref<'1D' | '5D' | '1M' | '3M' | '1Y'>('1D')
+const range = ref<TimeRange>('1D')
 const rangeOptions = [
   { value: '1D' as const, label: '1D' },
   { value: '5D' as const, label: '5D' },
@@ -32,6 +43,70 @@ const rangeOptions = [
   { value: '3M' as const, label: '3M' },
   { value: '1Y' as const, label: '1Y' },
 ]
+
+// --- Stage 3 showcase ---
+
+// All 30 instruments live (DataTable stress test)
+const allIds = ALL_INSTRUMENTS.map((i) => i.id)
+const { quotes: allQuotes } = useLiveQuotes(allIds)
+
+interface TableRow extends Record<string, unknown> {
+  id: string
+  symbol: string
+  name: string
+  last: number
+  change: number
+  changePct: number
+  dayLow: number
+  dayHigh: number
+  sparkValues: number[]
+  ts: number
+  decimals: number
+}
+
+const tableRows = computed<TableRow[]>(() =>
+  ALL_INSTRUMENTS.map((inst) => {
+    const q = allQuotes.value.get(inst.id)
+    const history = useHistory(inst.id, range).history.value
+    return {
+      id: inst.id,
+      symbol: inst.symbol,
+      name: inst.name,
+      last: q?.last ?? inst.basePrice,
+      change: q?.change ?? 0,
+      changePct: q?.changePct ?? 0,
+      dayLow: q?.dayLow ?? inst.basePrice,
+      dayHigh: q?.dayHigh ?? inst.basePrice,
+      sparkValues: history.slice(-40).map((p) => p.v),
+      ts: q?.ts ?? 0,
+      decimals: inst.decimals,
+    }
+  }),
+)
+
+const tableCols: TableColumn<TableRow>[] = [
+  { key: 'symbol', label: 'Symbol', width: '72px' },
+  { key: 'name', label: 'Name', width: '160px' },
+  { key: 'sparkValues', label: '24h', align: 'center', width: '88px' },
+  { key: 'last', label: 'Last', align: 'right', width: '88px' },
+  { key: 'changePct', label: 'Chg %', align: 'right', width: '80px' },
+  { key: 'dayLow', label: 'Low', align: 'right', width: '88px' },
+  { key: 'dayHigh', label: 'High', align: 'right', width: '88px' },
+  { key: 'ts', label: 'Updated', align: 'right', width: '80px' },
+]
+
+// LineChartPanel — Mag 7 normalized100
+const chartRange = ref<TimeRange>('1M')
+const chartSeries = computed(() =>
+  equities.map((inst) => ({
+    id: inst.id,
+    name: inst.symbol,
+    points: useHistory(inst.id, chartRange).history.value,
+  })),
+)
+
+// TickLog
+const { ticks } = useTickLog(allIds, 25)
 </script>
 
 <template>
@@ -198,6 +273,99 @@ const rangeOptions = [
               </tr>
             </tbody>
           </table>
+        </Panel>
+      </section>
+
+      <!-- Stage 3: Sparkline -->
+      <section class="sg-section">
+        <h2 class="sg-heading">Sparkline</h2>
+        <div class="sg-row">
+          <Sparkline :values="[10,12,11,14,13,16,15,18,17,20]" />
+          <Sparkline :values="[20,18,17,19,16,15,13,14,12,10]" />
+          <Sparkline :values="[10,10,10,10,10,10,10,10,10,10]" />
+          <Sparkline
+            :values="tableRows[0]?.sparkValues ?? []"
+            :width="120"
+          />
+        </div>
+      </section>
+
+      <!-- Stage 3: PriceChange + FlashValue -->
+      <section class="sg-section">
+        <h2 class="sg-heading">PriceChange + FlashValue</h2>
+        <div class="sg-row">
+          <PriceChange :change="12.34" :change-pct="0.0231" :show-absolute="true" />
+          <PriceChange :change="-8.92" :change-pct="-0.0108" :show-absolute="true" />
+          <PriceChange :change="0" :change-pct="0" />
+          <FlashValue :value="tableRows[0]?.last ?? 0">
+            <span class="mono" style="color: var(--color-text-primary)">
+              {{ tableRows[0]?.last.toFixed(2) }}
+            </span>
+          </FlashValue>
+        </div>
+      </section>
+
+      <!-- Stage 3: DataTable (30 instruments live) -->
+      <section class="sg-section">
+        <h2 class="sg-heading">DataTable — 30 instruments live</h2>
+        <Panel :no-pad="true" style="max-height: 420px; overflow: hidden; display: flex; flex-direction: column;">
+          <PanelHeader title="All Instruments" subtitle="30 rows">
+            <template #actions><LiveBadge /></template>
+          </PanelHeader>
+          <div style="overflow-y: auto; flex: 1;">
+            <DataTable :columns="tableCols" :rows="tableRows" :row-key="r => r.id" :sticky-header="true">
+              <template #cell-symbol="{ row }">
+                <span class="mono" style="color: var(--color-text-primary); font-weight: 600;">{{ row.symbol }}</span>
+              </template>
+              <template #cell-sparkValues="{ row }">
+                <Sparkline :values="(row.sparkValues as number[])" :width="72" :height="20" />
+              </template>
+              <template #cell-last="{ row }">
+                <FlashValue :value="(row.last as number)">
+                  <span class="mono">{{ (row.last as number).toFixed(row.decimals as number) }}</span>
+                </FlashValue>
+              </template>
+              <template #cell-changePct="{ row }">
+                <PriceChange :change="(row.change as number)" :change-pct="(row.changePct as number)" />
+              </template>
+              <template #cell-dayLow="{ row }">
+                <span class="mono muted">{{ (row.dayLow as number).toFixed(row.decimals as number) }}</span>
+              </template>
+              <template #cell-dayHigh="{ row }">
+                <span class="mono muted">{{ (row.dayHigh as number).toFixed(row.decimals as number) }}</span>
+              </template>
+              <template #cell-ts="{ row }">
+                <span class="mono muted">{{ row.ts ? new Date(row.ts as number).toISOString().slice(11,19) : '—' }}</span>
+              </template>
+            </DataTable>
+          </div>
+        </Panel>
+      </section>
+
+      <!-- Stage 3: LineChartPanel -->
+      <section class="sg-section">
+        <h2 class="sg-heading">LineChartPanel — Mag 7 normalized</h2>
+        <div style="height: 320px; display: flex; flex-direction: column;">
+          <LineChartPanel
+            title="Magnificent 7"
+            :series="chartSeries"
+            mode="normalized100"
+            :range="chartRange"
+            @update:range="chartRange = $event"
+          />
+        </div>
+      </section>
+
+      <!-- Stage 3: TickLog -->
+      <section class="sg-section">
+        <h2 class="sg-heading">TickLog</h2>
+        <Panel :no-pad="true" style="max-height: 280px; overflow: hidden;">
+          <PanelHeader title="Recent Ticks" subtitle="newest first">
+            <template #actions><LiveBadge /></template>
+          </PanelHeader>
+          <div style="overflow-y: auto; max-height: 232px;">
+            <TickLog :ticks="ticks" />
+          </div>
         </Panel>
       </section>
     </div>
