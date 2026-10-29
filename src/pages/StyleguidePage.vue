@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import AppShell from '@/app/AppShell.vue'
+import { useLiveQuotes } from '@/composables/useLiveQuotes'
+import { ALL_INSTRUMENTS } from '@/data/catalog'
 import Panel from '@/components/ui/Panel.vue'
 import PanelHeader from '@/components/ui/PanelHeader.vue'
 import SegmentedControl from '@/components/ui/SegmentedControl.vue'
@@ -10,6 +12,17 @@ import IconButton from '@/components/ui/IconButton.vue'
 import Skeleton from '@/components/ui/Skeleton.vue'
 import StateMessage from '@/components/ui/StateMessage.vue'
 import { ZoomIn, ZoomOut, RotateCcw, Settings } from '@lucide/vue'
+
+// Debug data layer
+const debugIds = ALL_INSTRUMENTS.slice(0, 10).map((i) => i.id)
+const { quotes } = useLiveQuotes(debugIds)
+const debugRows = computed(() =>
+  debugIds.map((id) => {
+    const inst = ALL_INSTRUMENTS.find((i) => i.id === id)!
+    const q = quotes.value.get(id)
+    return { inst, q }
+  }),
+)
 
 const range = ref<'1D' | '5D' | '1M' | '3M' | '1Y'>('1D')
 const rangeOptions = [
@@ -151,6 +164,42 @@ const rangeOptions = [
           </Panel>
         </div>
       </section>
+
+      <!-- Data layer debug -->
+      <section class="sg-section">
+        <h2 class="sg-heading">Data Layer — Live Quotes Debug</h2>
+        <Panel :no-pad="true">
+          <PanelHeader title="Live Ticks" subtitle="first 10 instruments">
+            <template #actions><LiveBadge /></template>
+          </PanelHeader>
+          <table class="debug-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th class="num">Last</th>
+                <th class="num">Chg%</th>
+                <th class="num">Low</th>
+                <th class="num">High</th>
+                <th class="num">Updated</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="{ inst, q } in debugRows" :key="inst.id">
+                <td class="mono">{{ inst.symbol }}</td>
+                <td>{{ inst.name }}</td>
+                <td class="num mono">{{ q ? q.last.toFixed(inst.decimals) : '—' }}</td>
+                <td class="num mono" :class="q && q.changePct >= 0 ? 'pos' : 'neg'">
+                  {{ q ? (q.changePct * 100).toFixed(2) + '%' : '—' }}
+                </td>
+                <td class="num mono muted">{{ q ? q.dayLow.toFixed(inst.decimals) : '—' }}</td>
+                <td class="num mono muted">{{ q ? q.dayHigh.toFixed(inst.decimals) : '—' }}</td>
+                <td class="num mono muted">{{ q ? new Date(q.ts).toISOString().slice(11, 19) : '—' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </Panel>
+      </section>
     </div>
   </AppShell>
 </template>
@@ -251,4 +300,39 @@ const rangeOptions = [
   text-transform: uppercase;
   color: var(--color-text-secondary);
 }
+
+/* Debug table */
+.debug-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.debug-table th {
+  padding: 7px 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.debug-table th.num,
+.debug-table td.num { text-align: right; }
+
+.debug-table td {
+  padding: 7px 12px;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+}
+
+.debug-table tr:last-child td { border-bottom: none; }
+.debug-table tr:hover td { background-color: var(--color-panel-elevated); }
+
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.pos { color: var(--color-positive); }
+.neg { color: var(--color-negative); }
+.muted { color: var(--color-text-muted); }
 </style>
