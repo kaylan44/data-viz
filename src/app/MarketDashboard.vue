@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue'
 import type { DashboardConfig } from './dashboardTypes'
 import { useLiveQuotes } from '@/composables/useLiveQuotes'
-import { useTickLog } from '@/composables/useTickLog'
+
 import { useMarketStore } from '@/stores/market'
 import { INSTRUMENT_MAP } from '@/data/catalog'
 import type { TableColumn } from '@/components/data/types'
@@ -14,7 +14,7 @@ import DataTable from '@/components/data/DataTable.vue'
 import Sparkline from '@/components/data/Sparkline.vue'
 import PriceChange from '@/components/data/PriceChange.vue'
 import FlashValue from '@/components/data/FlashValue.vue'
-import TickLog from '@/components/data/TickLog.vue'
+
 import LineChartPanel from '@/components/charts/LineChartPanel.vue'
 import type { TimeRange } from '@/types'
 
@@ -25,7 +25,6 @@ const range = ref<TimeRange>(props.config.defaultRange)
 const activeGroupId = ref(props.config.groups?.[0]?.id ?? '')
 
 const { quotes } = useLiveQuotes(props.config.instrumentIds)
-const { ticks } = useTickLog(props.config.instrumentIds, 20)
 
 interface DashboardRow extends Record<string, unknown> {
   id: string; symbol: string; name: string
@@ -148,11 +147,6 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
       @update:range="range = $event"
     />
 
-    <!-- Right bottom: tick log -->
-    <Panel :no-pad="true" class="dashboard-ticklog">
-      <PanelHeader title="Tick Log" subtitle="live feed" />
-      <div class="ticklog-scroll"><TickLog :ticks="ticks" /></div>
-    </Panel>
   </div>
 </template>
 
@@ -160,26 +154,19 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 .dashboard {
   display: grid;
   grid-template-columns: 390px 1fr;
-  grid-template-rows: 1fr 180px;
-  grid-template-areas: "table chart" "table ticklog";
+  grid-template-areas: "table chart";
   gap: 12px;
   height: calc(100vh - 52px - 40px);
   min-height: 560px;
 }
 
-.dashboard-table  { grid-area: table; display: flex; flex-direction: column; overflow: hidden; }
-.dashboard-chart  { grid-area: chart; }
-.dashboard-ticklog{ grid-area: ticklog; display: flex; flex-direction: column; overflow: hidden; }
+.dashboard-table { grid-area: table; display: flex; flex-direction: column; overflow: hidden; }
+.dashboard-chart { grid-area: chart; }
 
 .table-scroll {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-}
-
-.ticklog-scroll {
-  flex: 1;
-  overflow-y: auto;
 }
 
 .group-header {
