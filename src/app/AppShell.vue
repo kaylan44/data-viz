@@ -10,7 +10,7 @@ const route = useRoute()
 
 const pageTitles: Record<string, string> = {
   '/equities': 'Equities',
-  '/oil': 'Oil Markets',
+  '/oil': 'Oil & LNG Markets',
   '/overview': 'Markets Overview',
   '/map': 'World Map',
   '/styleguide': 'Style Guide',
