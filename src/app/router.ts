@@ -14,7 +14,7 @@ export const router = createRouter({
     },
     {
       path: '/oil',
-      meta: { title: 'Oil Markets — MarketDeck' },
+      meta: { title: 'Oil & LNG Markets — MarketDeck' },
       component: () => import('@/pages/OilPage.vue'),
     },
     {

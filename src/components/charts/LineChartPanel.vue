@@ -51,7 +51,7 @@ const emit = defineEmits<{ 'update:range': [value: TimeRange] }>()
 const chartRef = ref<InstanceType<typeof VChart>>()
 
 function resetZoom() {
-  chartRef.value?.dispatchAction({ type: 'dataZoom', start: 0, end: 100 })
+  chartRef.value?.dispatchAction({ type: 'restore' })
 }
 
 const hasData = computed(() => props.series.some((s) => s.points.length > 0))

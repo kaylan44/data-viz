@@ -4,11 +4,13 @@ import TopBar from './TopBar.vue'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 
+const props = defineProps<{ noPad?: boolean }>()
+
 const route = useRoute()
 
 const pageTitles: Record<string, string> = {
   '/equities': 'Equities',
-  '/oil': 'Oil Markets',
+  '/oil': 'Oil & LNG Markets',
   '/overview': 'Markets Overview',
   '/map': 'World Map',
   '/styleguide': 'Style Guide',
@@ -22,7 +24,7 @@ const pageTitle = computed(() => pageTitles[route.path] ?? 'MarketDeck')
     <SidebarNav />
     <div class="shell-body">
       <TopBar :title="pageTitle" />
-      <main class="shell-main">
+      <main class="shell-main" :class="{ 'shell-main--no-pad': props.noPad }">
         <slot />
       </main>
       <footer class="shell-footer">
@@ -54,6 +56,11 @@ const pageTitle = computed(() => pageTitles[route.path] ?? 'MarketDeck')
   overflow-y: auto;
   overflow-x: hidden;
   padding: 20px 24px;
+}
+
+.shell-main--no-pad {
+  padding: 0;
+  overflow: hidden;
 }
 
 .shell-footer {

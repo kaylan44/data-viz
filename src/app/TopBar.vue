@@ -23,7 +23,11 @@ onUnmounted(() => clearInterval(timer))
 
 <template>
   <header class="topbar">
-    <h1 class="topbar-title">{{ title }}</h1>
+    <h1 class="topbar-title">
+      <span class="topbar-appname">Data-Viz</span>
+      <span class="topbar-sep">/</span>
+      {{ title }}
+    </h1>
     <div class="topbar-right">
       <span class="topbar-clock">{{ utcTime }}</span>
       <LiveBadge />
@@ -49,6 +53,19 @@ onUnmounted(() => clearInterval(timer))
   font-weight: 600;
   color: var(--color-text-primary);
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar-appname {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.topbar-sep {
+  color: var(--color-border);
+  font-weight: 400;
 }
 
 .topbar-right {
