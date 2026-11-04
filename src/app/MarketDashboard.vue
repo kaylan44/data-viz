@@ -16,6 +16,7 @@ import PriceChange from '@/components/data/PriceChange.vue'
 import FlashValue from '@/components/data/FlashValue.vue'
 
 import LineChartPanel from '@/components/charts/LineChartPanel.vue'
+import { Info } from '@lucide/vue'
 import type { TimeRange } from '@/types'
 
 const props = defineProps<{ config: DashboardConfig; compact?: boolean }>()
@@ -96,6 +97,7 @@ const cols: TableColumn<DashboardRow>[] = [
   { key: 'dayLow', label: 'Low', align: 'right', width: '80px' },
   { key: 'dayHigh', label: 'High', align: 'right', width: '80px' },
   { key: 'ts', label: 'Updated', align: 'right', width: '76px' },
+  { key: '_detail', label: '', align: 'center', width: '36px' },
 ]
 
 function fmtNum(v: number, dec: number) { return v.toFixed(dec) }
@@ -133,6 +135,9 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
             <template #cell-dayLow="{ row }"><span class="mono muted">{{ fmtNum(row.dayLow as number, row.decimals as number) }}</span></template>
             <template #cell-dayHigh="{ row }"><span class="mono muted">{{ fmtNum(row.dayHigh as number, row.decimals as number) }}</span></template>
             <template #cell-ts="{ row }"><span class="mono muted">{{ fmtTime(row.ts as number) }}</span></template>
+            <template #cell-_detail="{ row }">
+              <button class="detail-btn" @click.stop="(ev) => openDetail(row as DashboardRow, ev)" title="Détail"><Info :size="13" /></button>
+            </template>
           </DataTable>
         </template>
         <!-- Grouped table (Overview) -->
@@ -149,6 +154,9 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
               <template #cell-dayLow="{ row }"><span class="mono muted">{{ fmtNum(row.dayLow as number, row.decimals as number) }}</span></template>
               <template #cell-dayHigh="{ row }"><span class="mono muted">{{ fmtNum(row.dayHigh as number, row.decimals as number) }}</span></template>
               <template #cell-ts="{ row }"><span class="mono muted">{{ fmtTime(row.ts as number) }}</span></template>
+              <template #cell-_detail="{ row }">
+                <button class="detail-btn" @click.stop="(ev) => openDetail(row as DashboardRow, ev)" title="Détail"><Info :size="13" /></button>
+              </template>
             </DataTable>
           </template>
         </template>
@@ -279,6 +287,23 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 .sym { font-family: var(--font-mono); font-weight: 600; color: var(--color-text-primary); font-size: 11px; }
 .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 11px; }
 .muted { color: var(--color-text-muted); }
+
+.detail-btn {
+  background: none;
+  border: none;
+  padding: 2px 4px;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-control);
+  transition: color 0.15s, background-color 0.15s;
+}
+.detail-btn:hover {
+  color: var(--color-accent);
+  background-color: color-mix(in srgb, var(--color-accent) 12%, transparent);
+}
 
 /* Row detail popover — rendered via Teleport, so not scoped */
 </style>

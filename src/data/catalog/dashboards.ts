@@ -7,7 +7,7 @@ import { indices, rates, fx, commoditiesCrypto } from './overview'
 export const equitiesDashboard: DashboardConfig = {
   title: 'Equities',
   instrumentIds: equities.map((i) => i.id),
-  chartMode: 'normalized100',
+  chartMode: 'absolute',
   defaultRange: '1M',
 }
 
@@ -21,7 +21,7 @@ export const oilDashboard: DashboardConfig = {
 export const lngDashboard: DashboardConfig = {
   title: 'LNG Markets',
   instrumentIds: lng.map((i) => i.id),
-  chartMode: 'normalized100',
+  chartMode: 'absolute',
   defaultRange: '1M',
 }
 
@@ -33,7 +33,7 @@ export const overviewDashboard: DashboardConfig = {
     ...fx,
     ...commoditiesCrypto,
   ].map((i) => i.id),
-  chartMode: 'normalized100',
+  chartMode: 'absolute',
   defaultRange: '1M',
   groups: [
     {

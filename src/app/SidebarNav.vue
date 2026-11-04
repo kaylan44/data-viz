@@ -23,7 +23,7 @@ function isActive(path: string) {
     <div class="sidebar-top">
       <!-- Logo mark -->
       <div class="sidebar-logo" title="MarketDeck">
-        <Zap :size="18" :stroke-width="2.5" color="#000" fill="#000" />
+        <Zap :size="20" :stroke-width="2.5" color="var(--color-accent)" fill="var(--color-accent)" />
       </div>
 
       <!-- Main nav -->
@@ -93,7 +93,8 @@ function isActive(path: string) {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background-color: var(--color-accent);
+  background-color: var(--color-panel-elevated);
+  border: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
