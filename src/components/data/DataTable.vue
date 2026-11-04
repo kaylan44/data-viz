@@ -61,7 +61,7 @@ function cellClass(col: TableColumn<T>, row: T): string {
 <style scoped>
 .dt-wrapper {
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: visible;
 }
 
 .dt {

@@ -5,7 +5,7 @@ import { indicesDashboard, ratesDashboard, fxDashboard, commoditiesDashboard } f
 </script>
 
 <template>
-  <AppShell no-pad>
+  <AppShell>
     <div class="overview-layout">
       <MarketDashboard :config="indicesDashboard" compact />
       <MarketDashboard :config="ratesDashboard" compact />
@@ -19,10 +19,6 @@ import { indicesDashboard, ratesDashboard, fxDashboard, commoditiesDashboard } f
 .overview-layout {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  height: calc(100vh - 52px - 40px);
-  padding: 12px 24px;
-  box-sizing: border-box;
-  overflow-y: auto;
+  gap: 16px;
 }
 </style>

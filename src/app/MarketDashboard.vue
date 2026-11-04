@@ -221,8 +221,8 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 }
 
 .dashboard--compact {
-  height: 100%;
-  min-height: 280px;
+  height: auto;
+  min-height: 300px;
 }
 
 .dashboard--grouped {
@@ -251,11 +251,10 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 }
 
 .dashboard-table { grid-area: table; display: flex; flex-direction: column; overflow: hidden; }
-.dashboard-chart { grid-area: chart; }
+.dashboard-chart { grid-area: chart; min-height: 300px; }
 
 .table-scroll {
-  flex: 1;
-  overflow-y: auto;
+  overflow-y: visible;
   overflow-x: hidden;
 }
 
