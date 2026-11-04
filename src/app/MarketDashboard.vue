@@ -89,15 +89,12 @@ const groupOptions = computed(() =>
 )
 
 const cols: TableColumn<DashboardRow>[] = [
-  { key: 'symbol', label: 'Symbol', width: '68px' },
-  { key: 'name', label: 'Name', width: '140px' },
-  { key: 'sparkValues', label: '24h', align: 'center', width: '84px' },
-  { key: 'last', label: 'Last', align: 'right', width: '90px' },
-  { key: 'changePct', label: 'Chg %', align: 'right', width: '80px' },
-  { key: 'dayLow', label: 'Low', align: 'right', width: '80px' },
-  { key: 'dayHigh', label: 'High', align: 'right', width: '80px' },
-  { key: 'ts', label: 'Updated', align: 'right', width: '76px' },
-  { key: '_detail', label: '', align: 'center', width: '36px' },
+  { key: 'symbol', label: 'Symbol', width: '62px' },
+  { key: 'name', label: 'Name', width: '130px' },
+  { key: 'sparkValues', label: '24h', align: 'center', width: '78px' },
+  { key: 'last', label: 'Last', align: 'right', width: '84px' },
+  { key: 'changePct', label: 'Chg %', align: 'right', width: '74px' },
+  { key: '_detail', label: '', align: 'center', width: '34px' },
 ]
 
 function fmtNum(v: number, dec: number) { return v.toFixed(dec) }
@@ -132,9 +129,6 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
               <FlashValue :value="(row.last as number)"><span class="mono">{{ fmtNum(row.last as number, row.decimals as number) }}</span></FlashValue>
             </template>
             <template #cell-changePct="{ row }"><PriceChange :change="(row.change as number)" :change-pct="(row.changePct as number)" /></template>
-            <template #cell-dayLow="{ row }"><span class="mono muted">{{ fmtNum(row.dayLow as number, row.decimals as number) }}</span></template>
-            <template #cell-dayHigh="{ row }"><span class="mono muted">{{ fmtNum(row.dayHigh as number, row.decimals as number) }}</span></template>
-            <template #cell-ts="{ row }"><span class="mono muted">{{ fmtTime(row.ts as number) }}</span></template>
             <template #cell-_detail="{ row }">
               <button class="detail-btn" @click.stop="(ev) => openDetail(row as DashboardRow, ev)" title="Détail"><Info :size="13" /></button>
             </template>
@@ -151,9 +145,6 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
                 <FlashValue :value="(row.last as number)"><span class="mono">{{ fmtNum(row.last as number, row.decimals as number) }}</span></FlashValue>
               </template>
               <template #cell-changePct="{ row }"><PriceChange :change="(row.change as number)" :change-pct="(row.changePct as number)" /></template>
-              <template #cell-dayLow="{ row }"><span class="mono muted">{{ fmtNum(row.dayLow as number, row.decimals as number) }}</span></template>
-              <template #cell-dayHigh="{ row }"><span class="mono muted">{{ fmtNum(row.dayHigh as number, row.decimals as number) }}</span></template>
-              <template #cell-ts="{ row }"><span class="mono muted">{{ fmtTime(row.ts as number) }}</span></template>
               <template #cell-_detail="{ row }">
                 <button class="detail-btn" @click.stop="(ev) => openDetail(row as DashboardRow, ev)" title="Détail"><Info :size="13" /></button>
               </template>
@@ -222,7 +213,7 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 <style scoped>
 .dashboard {
   display: grid;
-  grid-template-columns: 390px 1fr;
+  grid-template-columns: 462px 1fr;
   grid-template-areas: "table chart";
   gap: 12px;
   height: calc(100vh - 52px - 40px);

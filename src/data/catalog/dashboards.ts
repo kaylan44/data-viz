@@ -25,36 +25,30 @@ export const lngDashboard: DashboardConfig = {
   defaultRange: '1M',
 }
 
-export const overviewDashboard: DashboardConfig = {
-  title: 'Markets Overview',
-  instrumentIds: [
-    ...indices,
-    ...rates,
-    ...fx,
-    ...commoditiesCrypto,
-  ].map((i) => i.id),
+export const indicesDashboard: DashboardConfig = {
+  title: 'Indices',
+  instrumentIds: indices.map((i) => i.id),
   chartMode: 'absolute',
   defaultRange: '1M',
-  groups: [
-    {
-      id: 'indices',
-      label: 'Indices',
-      instrumentIds: indices.map((i) => i.id),
-    },
-    {
-      id: 'rates',
-      label: 'Rates',
-      instrumentIds: rates.map((i) => i.id),
-    },
-    {
-      id: 'fx',
-      label: 'FX',
-      instrumentIds: fx.map((i) => i.id),
-    },
-    {
-      id: 'commodities',
-      label: 'Commodities',
-      instrumentIds: commoditiesCrypto.map((i) => i.id),
-    },
-  ],
+}
+
+export const ratesDashboard: DashboardConfig = {
+  title: 'Rates',
+  instrumentIds: rates.map((i) => i.id),
+  chartMode: 'absolute',
+  defaultRange: '1M',
+}
+
+export const fxDashboard: DashboardConfig = {
+  title: 'FX',
+  instrumentIds: fx.map((i) => i.id),
+  chartMode: 'absolute',
+  defaultRange: '1M',
+}
+
+export const commoditiesDashboard: DashboardConfig = {
+  title: 'Commodities & Crypto',
+  instrumentIds: commoditiesCrypto.map((i) => i.id),
+  chartMode: 'absolute',
+  defaultRange: '1M',
 }
