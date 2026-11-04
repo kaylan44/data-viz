@@ -255,10 +255,8 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 
 .table-scroll {
   flex: 1;
-  overflow: hidden;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .group-header {

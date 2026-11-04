@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, useRoute } from 'vue-router'
-import { BarChart2, Droplets, Globe2, Map, Layers } from '@lucide/vue'
+import { BarChart2, Droplets, Globe2, Map, Layers, Zap } from '@lucide/vue'
 
 const route = useRoute()
 
@@ -23,7 +23,7 @@ function isActive(path: string) {
     <div class="sidebar-top">
       <!-- Logo mark -->
       <div class="sidebar-logo" title="MarketDeck">
-        <img src="/favicon.svg" class="logo-favicon" alt="MarketDeck" />
+        <Zap :size="20" :stroke-width="2.5" color="var(--color-accent)" fill="var(--color-accent)" />
       </div>
 
       <!-- Main nav -->
@@ -92,15 +92,14 @@ function isActive(path: string) {
 .sidebar-logo {
   width: 36px;
   height: 36px;
+  border-radius: 8px;
+  background-color: var(--color-panel-elevated);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 12px;
   flex-shrink: 0;
-}
-
-.logo-favicon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  display: block;
 }
 
 .nav-list {
