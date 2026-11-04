@@ -89,17 +89,21 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 </script>
 
 <template>
-  <div class="dashboard">
+  <div class="dashboard" :class="{ 'dashboard--grouped': config.groups }">
+    <!-- Top bar (grouped dashboards only) -->
+    <div v-if="config.groups" class="dashboard-topbar">
+      <div class="dashboard-topbar-left">
+        <LiveBadge />
+        <span class="dashboard-topbar-title">{{ config.title }}</span>
+      </div>
+      <SegmentedControl v-model="activeGroupId" :options="groupOptions" />
+    </div>
+
     <!-- Left: table -->
     <Panel :no-pad="true" class="dashboard-table">
       <PanelHeader :title="config.title">
-        <template #actions>
+        <template v-if="!config.groups" #actions>
           <LiveBadge />
-          <SegmentedControl
-            v-if="config.groups"
-            v-model="activeGroupId"
-            :options="groupOptions"
-          />
         </template>
       </PanelHeader>
       <div class="table-scroll">
@@ -158,6 +162,31 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
   gap: 12px;
   height: calc(100vh - 52px - 40px);
   min-height: 560px;
+}
+
+.dashboard--grouped {
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "topbar topbar" "table chart";
+}
+
+.dashboard-topbar {
+  grid-area: topbar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.dashboard-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashboard-topbar-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
 }
 
 .dashboard-table { grid-area: table; display: flex; flex-direction: column; overflow: hidden; }
