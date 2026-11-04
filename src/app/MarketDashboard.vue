@@ -16,28 +16,9 @@ import PriceChange from '@/components/data/PriceChange.vue'
 import FlashValue from '@/components/data/FlashValue.vue'
 
 import LineChartPanel from '@/components/charts/LineChartPanel.vue'
-import {
-  Info, Monitor, Cpu, Smartphone, Search, ShoppingCart, Share2, Zap,
-  Droplets, Flame, BarChart2, Percent, Activity, DollarSign,
-  ArrowLeftRight, Gem, Layers, Coins, TrendingUp,
-} from '@lucide/vue'
-import { markRaw } from 'vue'
+import { Info } from '@lucide/vue'
 import type { Component } from 'vue'
 import type { TimeRange } from '@/types'
-
-const ICON_MAP: Record<string, Component> = {
-  AAPL: markRaw(Smartphone), MSFT: markRaw(Monitor), GOOGL: markRaw(Search),
-  AMZN: markRaw(ShoppingCart), META: markRaw(Share2), NVDA: markRaw(Cpu), TSLA: markRaw(Zap),
-  BRENT: markRaw(Droplets), WTI: markRaw(Droplets), DUBAI: markRaw(Droplets),
-  JKM: markRaw(Flame), TTF: markRaw(Flame), NBP: markRaw(Flame), HH: markRaw(Flame),
-  VIX: markRaw(Activity), US10Y: markRaw(Percent), DXY: markRaw(DollarSign),
-  EURUSD: markRaw(ArrowLeftRight), USDJPY: markRaw(ArrowLeftRight), USDIDR: markRaw(ArrowLeftRight),
-  GOLD: markRaw(Gem), COPPER: markRaw(Layers), NATGAS: markRaw(Flame), BTC: markRaw(Coins),
-  SPX: markRaw(TrendingUp), NDX: markRaw(TrendingUp), DJIA: markRaw(TrendingUp),
-  SX5E: markRaw(TrendingUp), CAC: markRaw(TrendingUp), DAX: markRaw(TrendingUp),
-  FTSE: markRaw(TrendingUp), NKY: markRaw(TrendingUp), HSI: markRaw(TrendingUp),
-  IDX: markRaw(TrendingUp), STI: markRaw(TrendingUp),
-}
 
 const props = defineProps<{ config: DashboardConfig; compact?: boolean }>()
 
@@ -65,7 +46,7 @@ interface DashboardRow extends Record<string, unknown> {
   id: string; symbol: string; name: string
   last: number; change: number; changePct: number
   dayLow: number; dayHigh: number; sparkValues: number[]
-  ts: number; decimals: number; _icon: Component
+  ts: number; decimals: number
 }
 
 function buildRow(id: string): DashboardRow {
@@ -81,7 +62,6 @@ function buildRow(id: string): DashboardRow {
     sparkValues: store.getHistory(id, '1D').slice(-40).map((p) => p.v),
     ts: q?.ts ?? 0,
     decimals: inst.decimals,
-    _icon: ICON_MAP[id] ?? markRaw(BarChart2),
   }
 }
 
@@ -136,6 +116,9 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
     <!-- Left: table -->
     <Panel :no-pad="true" class="dashboard-table">
       <PanelHeader :title="config.title">
+        <template v-if="config.icon" #icon>
+          <component :is="config.icon" :size="14" class="header-icon" />
+        </template>
         <template v-if="!config.groups" #actions>
           <LiveBadge />
         </template>
@@ -145,12 +128,6 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
         <template v-if="!config.groups">
           <DataTable :columns="cols" :rows="allRows" :row-key="(r) => r.id" :sticky-header="true" @row-click="(row, ev) => openDetail(row as DashboardRow, ev)">
             <template #cell-symbol="{ row }"><span class="sym">{{ row.symbol }}</span></template>
-            <template #cell-name="{ row }">
-              <span class="name-cell">
-                <component :is="(row._icon as Component)" :size="12" class="row-icon" />
-                <span class="name-text">{{ row.name as string }}</span>
-              </span>
-            </template>
             <template #cell-sparkValues="{ row }"><Sparkline :values="(row.sparkValues as number[])" :width="72" :height="20" /></template>
             <template #cell-last="{ row }">
               <FlashValue :value="(row.last as number)"><span class="mono">{{ fmtNum(row.last as number, row.decimals as number) }}</span></FlashValue>
@@ -167,12 +144,6 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
             <div class="group-header">{{ group.label }}</div>
             <DataTable :columns="cols" :rows="rowsForGroup(group.id)" :row-key="(r) => r.id" @row-click="(row, ev) => openDetail(row as DashboardRow, ev)">
               <template #cell-symbol="{ row }"><span class="sym">{{ row.symbol }}</span></template>
-              <template #cell-name="{ row }">
-                <span class="name-cell">
-                  <component :is="(row._icon as Component)" :size="12" class="row-icon" />
-                  <span class="name-text">{{ row.name as string }}</span>
-                </span>
-              </template>
               <template #cell-sparkValues="{ row }"><Sparkline :values="(row.sparkValues as number[])" :width="72" :height="20" /></template>
               <template #cell-last="{ row }">
                 <FlashValue :value="(row.last as number)"><span class="mono">{{ fmtNum(row.last as number, row.decimals as number) }}</span></FlashValue>
@@ -311,24 +282,7 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 11px; }
 .muted { color: var(--color-text-muted); }
 
-.name-cell {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  overflow: hidden;
-}
-
-.row-icon {
-  flex-shrink: 0;
-  color: var(--color-text-muted);
-}
-
-.name-text {
-  color: var(--color-text-primary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+.header-icon { color: var(--color-accent); flex-shrink: 0; }
 
 .detail-btn {
   background: none;

@@ -5,6 +5,7 @@ defineProps<{ title: string; subtitle?: string }>()
 <template>
   <div class="panel-header">
     <div class="panel-header-left">
+      <slot name="icon" />
       <span class="panel-header-title">{{ title }}</span>
       <span v-if="subtitle" class="panel-header-subtitle">{{ subtitle }}</span>
     </div>
@@ -26,8 +27,8 @@ defineProps<{ title: string; subtitle?: string }>()
 
 .panel-header-left {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
   min-width: 0;
 }
 
