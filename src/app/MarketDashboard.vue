@@ -17,7 +17,6 @@ import FlashValue from '@/components/data/FlashValue.vue'
 
 import LineChartPanel from '@/components/charts/LineChartPanel.vue'
 import { Info } from '@lucide/vue'
-import type { Component } from 'vue'
 import type { TimeRange } from '@/types'
 
 const props = defineProps<{ config: DashboardConfig; compact?: boolean }>()
