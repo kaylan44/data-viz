@@ -60,12 +60,15 @@ function cellClass(col: TableColumn<T>, row: T): string {
 
 <style scoped>
 .dt-wrapper {
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
 }
 
 .dt {
   width: 100%;
+  height: 100%;
   border-collapse: collapse;
   font-size: 12px;
   table-layout: fixed;
