@@ -277,7 +277,7 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 
 .group-header:first-child { border-top: none; }
 
-.sym { font-family: var(--font-mono); font-weight: 700; color: var(--color-accent); font-size: 11px; }
+.sym { font-family: var(--font-mono); font-weight: 600; color: var(--color-text-primary); font-size: 11px; }
 .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 11px; }
 .muted { color: var(--color-text-muted); }
 
