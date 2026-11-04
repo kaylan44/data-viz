@@ -1,6 +1,7 @@
 import type { DashboardConfig } from '@/app/dashboardTypes'
 import { equities } from './equities'
 import { oil } from './oil'
+import { lng } from './lng'
 import { indices, rates, fx, commoditiesCrypto } from './overview'
 
 export const equitiesDashboard: DashboardConfig = {
@@ -14,6 +15,13 @@ export const oilDashboard: DashboardConfig = {
   title: 'Oil Markets',
   instrumentIds: oil.map((i) => i.id),
   chartMode: 'absolute',
+  defaultRange: '1M',
+}
+
+export const lngDashboard: DashboardConfig = {
+  title: 'LNG Markets',
+  instrumentIds: lng.map((i) => i.id),
+  chartMode: 'normalized100',
   defaultRange: '1M',
 }
 

@@ -18,7 +18,21 @@ import FlashValue from '@/components/data/FlashValue.vue'
 import LineChartPanel from '@/components/charts/LineChartPanel.vue'
 import type { TimeRange } from '@/types'
 
-const props = defineProps<{ config: DashboardConfig }>()
+const props = defineProps<{ config: DashboardConfig; compact?: boolean }>()
+
+// Row detail popover
+const selectedRow = ref<DashboardRow | null>(null)
+const popoverAnchor = ref<{ x: number; y: number } | null>(null)
+
+function openDetail(row: DashboardRow, event: MouseEvent) {
+  selectedRow.value = row
+  popoverAnchor.value = { x: event.clientX, y: event.clientY }
+}
+
+function closeDetail() {
+  selectedRow.value = null
+  popoverAnchor.value = null
+}
 
 const store = useMarketStore()
 const range = ref<TimeRange>(props.config.defaultRange)
@@ -89,7 +103,7 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 </script>
 
 <template>
-  <div class="dashboard" :class="{ 'dashboard--grouped': config.groups }">
+  <div class="dashboard" :class="{ 'dashboard--grouped': config.groups, 'dashboard--compact': compact }">
     <!-- Top bar (grouped dashboards only) -->
     <div v-if="config.groups" class="dashboard-topbar">
       <div class="dashboard-topbar-left">
@@ -109,7 +123,7 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
       <div class="table-scroll">
         <!-- Flat table -->
         <template v-if="!config.groups">
-          <DataTable :columns="cols" :rows="allRows" :row-key="(r) => r.id" :sticky-header="true">
+          <DataTable :columns="cols" :rows="allRows" :row-key="(r) => r.id" :sticky-header="true" @row-click="(row, ev) => openDetail(row as DashboardRow, ev)">
             <template #cell-symbol="{ row }"><span class="sym">{{ row.symbol }}</span></template>
             <template #cell-sparkValues="{ row }"><Sparkline :values="(row.sparkValues as number[])" :width="72" :height="20" /></template>
             <template #cell-last="{ row }">
@@ -125,7 +139,7 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
         <template v-else>
           <template v-for="group in config.groups" :key="group.id">
             <div class="group-header">{{ group.label }}</div>
-            <DataTable :columns="cols" :rows="rowsForGroup(group.id)" :row-key="(r) => r.id">
+            <DataTable :columns="cols" :rows="rowsForGroup(group.id)" :row-key="(r) => r.id" @row-click="(row, ev) => openDetail(row as DashboardRow, ev)">
               <template #cell-symbol="{ row }"><span class="sym">{{ row.symbol }}</span></template>
               <template #cell-sparkValues="{ row }"><Sparkline :values="(row.sparkValues as number[])" :width="72" :height="20" /></template>
               <template #cell-last="{ row }">
@@ -151,6 +165,49 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
       @update:range="range = $event"
     />
 
+    <!-- Row detail popover -->
+    <Teleport to="body">
+      <Transition name="popover">
+        <div
+          v-if="selectedRow && popoverAnchor"
+          class="row-popover"
+          :style="{ left: `${popoverAnchor.x + 12}px`, top: `${popoverAnchor.y - 8}px` }"
+          @click.stop
+        >
+          <div class="rp-header">
+            <span class="rp-symbol">{{ selectedRow.symbol }}</span>
+            <span class="rp-name">{{ selectedRow.name }}</span>
+            <button class="rp-close" @click="closeDetail">✕</button>
+          </div>
+          <div class="rp-grid">
+            <div class="rp-item">
+              <span class="rp-label">Last</span>
+              <span class="rp-value mono">{{ fmtNum(selectedRow.last, selectedRow.decimals) }}</span>
+            </div>
+            <div class="rp-item">
+              <span class="rp-label">Change</span>
+              <span class="rp-value" :class="selectedRow.change >= 0 ? 'pos' : 'neg'">
+                {{ selectedRow.change >= 0 ? '+' : '' }}{{ fmtNum(selectedRow.change, selectedRow.decimals) }}
+                ({{ selectedRow.changePct >= 0 ? '+' : '' }}{{ selectedRow.changePct.toFixed(2) }}%)
+              </span>
+            </div>
+            <div class="rp-item">
+              <span class="rp-label">Day Low</span>
+              <span class="rp-value mono">{{ fmtNum(selectedRow.dayLow, selectedRow.decimals) }}</span>
+            </div>
+            <div class="rp-item">
+              <span class="rp-label">Day High</span>
+              <span class="rp-value mono">{{ fmtNum(selectedRow.dayHigh, selectedRow.decimals) }}</span>
+            </div>
+            <div class="rp-item rp-item--full">
+              <span class="rp-label">Updated</span>
+              <span class="rp-value mono">{{ fmtTime(selectedRow.ts) }}</span>
+            </div>
+          </div>
+        </div>
+      </Transition>
+      <div v-if="selectedRow" class="popover-backdrop" @click="closeDetail" />
+    </Teleport>
   </div>
 </template>
 
@@ -162,6 +219,11 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
   gap: 12px;
   height: calc(100vh - 52px - 40px);
   min-height: 560px;
+}
+
+.dashboard--compact {
+  height: 100%;
+  min-height: 280px;
 }
 
 .dashboard--grouped {
@@ -217,4 +279,99 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 .sym { font-family: var(--font-mono); font-weight: 600; color: var(--color-text-primary); font-size: 11px; }
 .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 11px; }
 .muted { color: var(--color-text-muted); }
+
+/* Row detail popover — rendered via Teleport, so not scoped */
+</style>
+
+<style>
+.row-popover {
+  position: fixed;
+  z-index: 1000;
+  width: 280px;
+  background: var(--color-panel-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  pointer-events: all;
+}
+
+.rp-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-panel);
+}
+
+.rp-symbol {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-accent);
+}
+
+.rp-name {
+  flex: 1;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rp-close {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.rp-close:hover { color: var(--color-text-primary); }
+
+.rp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--color-border);
+}
+
+.rp-item {
+  background: var(--color-panel-elevated);
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.rp-item--full { grid-column: 1 / -1; }
+
+.rp-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.rp-value {
+  font-size: 13px;
+  color: var(--color-text-primary);
+}
+
+.rp-value.pos { color: var(--color-positive); }
+.rp-value.neg { color: var(--color-negative); }
+
+.popover-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+
+.popover-enter-active, .popover-leave-active { transition: opacity 0.15s, transform 0.15s; }
+.popover-enter-from, .popover-leave-to { opacity: 0; transform: scale(0.95) translateY(-4px); }
 </style>

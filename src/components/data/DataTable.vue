@@ -8,6 +8,8 @@ defineProps<{
   stickyHeader?: boolean
 }>()
 
+const emit = defineEmits<{ rowClick: [row: T, event: MouseEvent] }>()
+
 function cellClass(col: TableColumn<T>, row: T): string {
   if (!col.cellClass) return ''
   return typeof col.cellClass === 'function' ? col.cellClass(row) : col.cellClass
@@ -35,6 +37,7 @@ function cellClass(col: TableColumn<T>, row: T): string {
           v-for="row in rows"
           :key="rowKey(row)"
           class="dt-row"
+          @click="emit('rowClick', row, $event)"
         >
           <td
             v-for="col in columns"
@@ -57,7 +60,7 @@ function cellClass(col: TableColumn<T>, row: T): string {
 
 <style scoped>
 .dt-wrapper {
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: auto;
 }
 
@@ -105,6 +108,7 @@ function cellClass(col: TableColumn<T>, row: T): string {
 .dt-td--right { text-align: right; }
 .dt-td--center { text-align: center; }
 
+.dt-row { cursor: pointer; }
 .dt-row:last-child .dt-td { border-bottom: none; }
 .dt-row:hover .dt-td { background-color: var(--color-panel-elevated); }
 
