@@ -24,7 +24,7 @@ function isActive(path: string) {
     <div class="sidebar-top">
       <!-- Logo mark -->
       <div class="sidebar-logo" title="MarketDeck">
-        <img src="/favicon.svg" alt="MarketDeck" class="logo-img" />
+        <img src="/navbar-pic.svg" alt="MarketDeck" class="logo-img" />
       </div>
 
       <!-- Main nav -->
