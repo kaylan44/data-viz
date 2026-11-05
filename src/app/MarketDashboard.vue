@@ -224,11 +224,13 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 }
 
 .dashboard--compact {
+  flex: none;
   height: auto;
   min-height: 300px;
 }
 
 .dashboard--compact.dashboard--fill {
+  flex: 1;
   height: 100%;
   min-height: 0;
 }

@@ -30,6 +30,5 @@ import { oilDashboard, lngDashboard } from '@/data/catalog/dashboards'
 .oil-dash-wrap {
   flex: 1;
   min-height: 0;
-  overflow: hidden;
 }
 </style>
