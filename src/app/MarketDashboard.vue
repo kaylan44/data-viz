@@ -19,7 +19,7 @@ import LineChartPanel from '@/components/charts/LineChartPanel.vue'
 import { Info } from '@lucide/vue'
 import type { TimeRange } from '@/types'
 
-const props = defineProps<{ config: DashboardConfig; compact?: boolean }>()
+const props = defineProps<{ config: DashboardConfig; compact?: boolean; fillHeight?: boolean }>()
 
 // Row detail popover
 const selectedRow = ref<DashboardRow | null>(null)
@@ -102,7 +102,7 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 </script>
 
 <template>
-  <div class="dashboard" :class="{ 'dashboard--grouped': config.groups, 'dashboard--compact': compact }">
+  <div class="dashboard" :class="{ 'dashboard--grouped': config.groups, 'dashboard--compact': compact, 'dashboard--fill': fillHeight }">
     <!-- Top bar (grouped dashboards only) -->
     <div v-if="config.groups" class="dashboard-topbar">
       <div class="dashboard-topbar-left">
@@ -226,6 +226,11 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 .dashboard--compact {
   height: auto;
   min-height: 300px;
+}
+
+.dashboard--compact.dashboard--fill {
+  height: 100%;
+  min-height: 0;
 }
 
 .dashboard--grouped {
