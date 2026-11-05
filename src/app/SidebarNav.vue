@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, useRoute } from 'vue-router'
-import { BarChart2, Droplets, Globe2, Map, Layers, Zap } from '@lucide/vue'
+import { BarChart2, Droplets, Globe2, Map, Layers, PieChart } from '@lucide/vue'
 
 const route = useRoute()
 
 const navItems = [
+  { to: '/portfolio', icon: PieChart, label: 'Portfolio' },
   { to: '/equities', icon: BarChart2, label: 'Equities' },
   { to: '/oil', icon: Droplets, label: 'Oil Markets' },
   { to: '/overview', icon: Globe2, label: 'Markets Overview' },
@@ -22,8 +23,10 @@ function isActive(path: string) {
   <nav class="sidebar" aria-label="Main navigation">
     <div class="sidebar-top">
       <!-- Logo mark -->
-      <div class="sidebar-logo" title="MarketDeck">
-        <Zap :size="20" :stroke-width="2.5" color="var(--color-accent)" fill="var(--color-accent)" />
+      <div class="sidebar-logo-slot">
+        <div class="sidebar-logo" title="MarketDeck">
+          <img src="/navbar-pic.svg" alt="MarketDeck" class="logo-img" />
+        </div>
       </div>
 
       <!-- Main nav -->
@@ -67,7 +70,7 @@ function isActive(path: string) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px 0;
+  padding: 0 0 12px;
   gap: 0;
   z-index: 10;
 }
@@ -89,6 +92,17 @@ function isActive(path: string) {
   padding-bottom: 4px;
 }
 
+.sidebar-logo-slot {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 8px;
+}
+
 .sidebar-logo {
   width: 36px;
   height: 36px;
@@ -98,8 +112,14 @@ function isActive(path: string) {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.logo-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 
 .nav-list {
