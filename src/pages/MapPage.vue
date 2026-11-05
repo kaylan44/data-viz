@@ -25,7 +25,7 @@ onUnmounted(() => window.removeEventListener('keydown', onEscape))
 </script>
 
 <template>
-  <AppShell page-title="World Map">
+  <AppShell :no-pad="true">
     <div class="map-page">
       <WorldMap
         ref="mapRef"
@@ -57,7 +57,8 @@ onUnmounted(() => window.removeEventListener('keydown', onEscape))
 .map-page {
   position: relative;
   width: 100%;
-  height: calc(100vh - 52px - 40px);
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
   background: #0d1a2e;
 }
