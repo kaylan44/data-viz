@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, useRoute } from 'vue-router'
 import { BarChart2, Droplets, Globe2, Map, Layers, PieChart } from '@lucide/vue'
-import { usePageTabsStore } from '@/stores/pageTabs'
-
 const route = useRoute()
-const pageTabsStore = usePageTabsStore()
 
 const navItems = [
   { to: '/portfolio', icon: PieChart, label: 'Portfolio' },
@@ -61,19 +58,6 @@ function isActive(path: string) {
       </RouterLink>
     </div>
 
-    <!-- Mobile-only: page tabs row (shown above the icon row when tabs exist) -->
-    <div v-if="pageTabsStore.tabs.length > 0" class="mobile-tabs" role="group" aria-label="Page tabs">
-      <button
-        v-for="tab in pageTabsStore.tabs"
-        :key="tab.value"
-        type="button"
-        class="mobile-tab"
-        :class="{ 'mobile-tab--active': pageTabsStore.active === tab.value }"
-        @click="pageTabsStore.setActive(tab.value)"
-      >
-        {{ tab.label }}
-      </button>
-    </div>
   </nav>
 </template>
 
@@ -91,10 +75,6 @@ function isActive(path: string) {
   z-index: 10;
 }
 
-/* Mobile tabs: hidden on desktop */
-.mobile-tabs {
-  display: none;
-}
 
 /* Mobile: fixed bottom navigation bar */
 @media (max-width: 639px) {
@@ -123,7 +103,6 @@ function isActive(path: string) {
     gap: 0;
     align-items: center;
     padding: 0 8px;
-    border-top: 1px solid var(--color-border);
   }
 
   .sidebar-logo-slot {
@@ -152,47 +131,6 @@ function isActive(path: string) {
     display: none;
   }
 
-  /* Tabs row: shown above icon row when tabs exist */
-  .mobile-tabs {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    padding: 6px 12px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .mobile-tabs::-webkit-scrollbar {
-    display: none;
-  }
-
-  .mobile-tab {
-    flex-shrink: 0;
-    padding: 5px 14px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--color-text-secondary);
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: var(--radius-control);
-    cursor: pointer;
-    transition: color 0.1s, background-color 0.1s, border-color 0.1s;
-    white-space: nowrap;
-    letter-spacing: 0.02em;
-  }
-
-  .mobile-tab:hover {
-    color: var(--color-text-primary);
-    background-color: var(--color-panel-elevated);
-  }
-
-  .mobile-tab--active {
-    color: var(--color-accent);
-    background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
-    border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
-  }
 }
 
 .sidebar-top {
