@@ -103,6 +103,12 @@ const option = computed(() => ({
     borderWidth: 1,
     textStyle: { color: '#E6EAF2', fontSize: 11, fontFamily: 'JetBrains Mono, monospace' },
     axisPointer: { lineStyle: { color: AXIS_COLOR } },
+    formatter: (params: { marker: string; seriesName: string; value: [number, number] }[]) => {
+      const ts = new Date(params[0].value[0])
+      const date = ts.toLocaleString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })
+      const rows = params.map((p) => `${p.marker} ${p.seriesName}: <b>${p.value[1].toFixed(4)}</b>`).join('<br/>')
+      return `<div style="margin-bottom:4px;color:#8B96A9">${date}</div>${rows}`
+    },
   },
   dataZoom: [{ type: 'inside', filterMode: 'filter' }],
   series: activeSeries.value.map((s, i) => ({
