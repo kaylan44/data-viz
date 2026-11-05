@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, useRoute } from 'vue-router'
-import { BarChart2, Droplets, Globe2, Map, Layers, Zap } from '@lucide/vue'
+import { BarChart2, Droplets, Globe2, Map, Layers, Zap, PieChart } from '@lucide/vue'
 
 const route = useRoute()
 
 const navItems = [
+  { to: '/portfolio', icon: PieChart, label: 'Portfolio' },
   { to: '/equities', icon: BarChart2, label: 'Equities' },
   { to: '/oil', icon: Droplets, label: 'Oil Markets' },
   { to: '/overview', icon: Globe2, label: 'Markets Overview' },

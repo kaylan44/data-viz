@@ -28,6 +28,11 @@ export const router = createRouter({
       component: () => import('@/pages/MapPage.vue'),
     },
     {
+      path: '/portfolio',
+      meta: { title: 'Portfolio — MarketDeck' },
+      component: () => import('@/pages/PortfolioPage.vue'),
+    },
+    {
       path: '/styleguide',
       meta: { title: 'Style Guide — MarketDeck' },
       component: () => import('@/pages/StyleguidePage.vue'),
