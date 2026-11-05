@@ -53,9 +53,12 @@ const pageTitle = computed(() => pageTitles[route.path] ?? 'MarketDeck')
 
 .shell-main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 20px 24px;
+  min-height: 0;
 }
 
 .shell-main--no-pad {

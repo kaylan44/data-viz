@@ -219,7 +219,7 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
   grid-template-columns: 462px 1fr;
   grid-template-areas: "table chart";
   gap: 12px;
-  height: 100%;
+  flex: 1;
   min-height: 560px;
 }
 

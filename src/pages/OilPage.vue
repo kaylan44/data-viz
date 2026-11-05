@@ -5,7 +5,7 @@ import { oilDashboard, lngDashboard } from '@/data/catalog/dashboards'
 </script>
 
 <template>
-  <AppShell no-scroll>
+  <AppShell>
     <div class="oil-layout">
       <div class="oil-dash-wrap">
         <MarketDashboard :config="oilDashboard" compact fill-height />
@@ -22,7 +22,8 @@ import { oilDashboard, lngDashboard } from '@/data/catalog/dashboards'
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
 }
 
