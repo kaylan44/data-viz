@@ -23,8 +23,10 @@ function isActive(path: string) {
   <nav class="sidebar" aria-label="Main navigation">
     <div class="sidebar-top">
       <!-- Logo mark -->
-      <div class="sidebar-logo" title="MarketDeck">
-        <img src="/navbar-pic.svg" alt="MarketDeck" class="logo-img" />
+      <div class="sidebar-logo-slot">
+        <div class="sidebar-logo" title="MarketDeck">
+          <img src="/navbar-pic.svg" alt="MarketDeck" class="logo-img" />
+        </div>
       </div>
 
       <!-- Main nav -->
@@ -68,7 +70,7 @@ function isActive(path: string) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px 0;
+  padding: 0 0 12px;
   gap: 0;
   z-index: 10;
 }
@@ -90,6 +92,17 @@ function isActive(path: string) {
   padding-bottom: 4px;
 }
 
+.sidebar-logo-slot {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 8px;
+}
+
 .sidebar-logo {
   width: 36px;
   height: 36px;
@@ -99,7 +112,6 @@ function isActive(path: string) {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
   flex-shrink: 0;
   overflow: hidden;
 }
