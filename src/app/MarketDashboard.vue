@@ -117,7 +117,7 @@ onUnmounted(() => {
 })
 
 const cols: TableColumn<DashboardRow>[] = [
-  { key: 'symbol', label: 'Symbol', width: '62px' },
+  { key: 'symbol', label: 'Symbol', width: '82px' },
   { key: 'name', label: 'Name', width: '130px' },
   { key: 'sparkValues', label: '24h', align: 'center', width: '78px' },
   { key: 'last', label: 'Last', align: 'right', width: '84px' },
