@@ -237,4 +237,25 @@ const bestLast = computed(() => {
   display: flex;
   flex-direction: column;
 }
+
+@media (max-width: 639px) {
+  .portfolio-page {
+    padding: 12px 16px;
+  }
+
+  .kpi-row {
+    grid-template-columns: 1fr;
+  }
+
+  .main-row {
+    flex-direction: column;
+    flex: none;
+  }
+
+  .chart-col,
+  .donut-col {
+    flex: none;
+    min-height: 260px;
+  }
+}
 </style>

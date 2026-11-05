@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch, onUnmounted } from 'vue'
 import type { DashboardConfig } from './dashboardTypes'
 import { useLiveQuotes } from '@/composables/useLiveQuotes'
 
 import { useMarketStore } from '@/stores/market'
+import { usePageTabsStore } from '@/stores/pageTabs'
 import { INSTRUMENT_MAP } from '@/data/catalog'
 import type { TableColumn } from '@/components/data/types'
 import Panel from '@/components/ui/Panel.vue'
@@ -88,8 +89,35 @@ const groupOptions = computed(() =>
   (props.config.groups ?? []).map((g) => ({ value: g.id, label: g.label })),
 )
 
+// Sync group tabs to the page-tabs store so the mobile navbar can render them
+const pageTabsStore = usePageTabsStore()
+
+watch(
+  [groupOptions, activeGroupId],
+  ([opts, active]) => {
+    if (opts.length > 0) {
+      pageTabsStore.setTabs(opts, active)
+    }
+  },
+  { immediate: true },
+)
+
+// Keep store in sync when the navbar changes the active tab
+watch(
+  () => pageTabsStore.active,
+  (val) => {
+    if (val && val !== activeGroupId.value && groupOptions.value.some((o) => o.value === val)) {
+      activeGroupId.value = val
+    }
+  },
+)
+
+onUnmounted(() => {
+  if (props.config.groups) pageTabsStore.clearTabs()
+})
+
 const cols: TableColumn<DashboardRow>[] = [
-  { key: 'symbol', label: 'Symbol', width: '62px' },
+  { key: 'symbol', label: 'Symbol', width: '82px' },
   { key: 'name', label: 'Name', width: '130px' },
   { key: 'sparkValues', label: '24h', align: 'center', width: '78px' },
   { key: 'last', label: 'Last', align: 'right', width: '84px' },
@@ -283,6 +311,30 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
 .muted { color: var(--color-text-muted); }
 
 .header-icon { color: var(--color-accent); flex-shrink: 0; }
+
+/* Mobile — declared AFTER base styles so it wins */
+@media (max-width: 639px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas: "table" "chart";
+    min-height: unset;
+    gap: 10px;
+  }
+
+  .dashboard--grouped {
+    grid-template-rows: auto auto;
+    grid-template-areas: "table" "chart";
+  }
+
+  /* topbar (SegmentedControl) moved to TopBar hamburger on mobile */
+  .dashboard-topbar {
+    display: none;
+  }
+
+  .dashboard-chart {
+    min-height: 260px;
+  }
+}
 
 .detail-btn {
   background: none;

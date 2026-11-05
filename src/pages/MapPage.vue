@@ -73,6 +73,12 @@ onUnmounted(() => window.removeEventListener('keydown', onEscape))
   width: calc(100% - 300px);
 }
 
+@media (max-width: 639px) {
+  .map-area.panel-open {
+    width: 100%;
+  }
+}
+
 .controls-overlay {
   position: absolute;
   bottom: 20px;
