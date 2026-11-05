@@ -5,7 +5,7 @@ import { equitiesDashboard } from '@/data/catalog/dashboards'
 </script>
 
 <template>
-  <AppShell>
+  <AppShell no-scroll>
     <MarketDashboard :config="equitiesDashboard" />
   </AppShell>
 </template>

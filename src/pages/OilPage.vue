@@ -5,7 +5,7 @@ import { oilDashboard, lngDashboard } from '@/data/catalog/dashboards'
 </script>
 
 <template>
-  <AppShell>
+  <AppShell no-scroll>
     <div class="oil-layout">
       <div class="oil-dash-wrap">
         <MarketDashboard :config="oilDashboard" compact fill-height />
