@@ -7,12 +7,8 @@ import { oilDashboard, lngDashboard } from '@/data/catalog/dashboards'
 <template>
   <AppShell>
     <div class="oil-layout">
-      <div class="oil-dash-wrap">
-        <MarketDashboard :config="oilDashboard" compact fill-height />
-      </div>
-      <div class="oil-dash-wrap">
-        <MarketDashboard :config="lngDashboard" compact fill-height />
-      </div>
+      <MarketDashboard :config="oilDashboard" compact />
+      <MarketDashboard :config="lngDashboard" compact />
     </div>
   </AppShell>
 </template>
@@ -22,13 +18,5 @@ import { oilDashboard, lngDashboard } from '@/data/catalog/dashboards'
   display: flex;
   flex-direction: column;
   gap: 16px;
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
-}
-
-.oil-dash-wrap {
-  flex: 1;
-  min-height: 0;
 }
 </style>
