@@ -75,64 +75,6 @@ function isActive(path: string) {
   z-index: 10;
 }
 
-
-/* Mobile: fixed bottom navigation bar */
-@media (max-width: 639px) {
-  .sidebar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    min-width: 0;
-    height: auto;
-    flex-direction: column-reverse;
-    justify-content: flex-end;
-    padding: 0;
-    border-right: none;
-    border-top: 1px solid var(--color-border);
-    z-index: 100;
-  }
-
-  /* Icon row */
-  .sidebar-top {
-    flex-direction: row;
-    flex: none;
-    height: 56px;
-    justify-content: space-around;
-    gap: 0;
-    align-items: center;
-    padding: 0 8px;
-  }
-
-  .sidebar-logo-slot {
-    display: none;
-  }
-
-  .nav-list {
-    flex-direction: row;
-    gap: 0;
-    justify-content: space-around;
-    width: 100%;
-  }
-
-  .sidebar-bottom {
-    flex-direction: row;
-    padding: 0 8px;
-    width: auto;
-  }
-
-  .nav-item {
-    width: 44px;
-    height: 44px;
-  }
-
-  .nav-tooltip {
-    display: none;
-  }
-
-}
-
 .sidebar-top {
   flex: 1;
   display: flex;
@@ -258,5 +200,56 @@ function isActive(path: string) {
 
 .nav-item:hover .nav-tooltip {
   opacity: 1;
+}
+
+/* Mobile: fixed bottom navigation bar — declared AFTER base styles so it wins */
+@media (max-width: 639px) {
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-width: 0;
+    height: 56px;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    border-right: none;
+    border-top: 1px solid var(--color-border);
+    z-index: 100;
+  }
+
+  .sidebar-top {
+    flex: 1;
+    flex-direction: row;
+    height: 56px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+    padding: 0 8px;
+  }
+
+  /* hide logo and styleguide on mobile */
+  .sidebar-logo-slot,
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .nav-item {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav-tooltip {
+    display: none;
+  }
 }
 </style>
