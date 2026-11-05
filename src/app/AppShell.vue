@@ -87,8 +87,8 @@ const pageTitle = computed(() => pageTitles[route.path] ?? 'MarketDeck')
   }
 
   .shell-body {
-    /* reserve space for bottom nav */
-    padding-bottom: 56px;
+    /* reserve space for bottom nav (56px icons + up to ~44px tabs row) */
+    padding-bottom: 100px;
   }
 
   .shell-main {

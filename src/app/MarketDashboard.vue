@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch, onUnmounted } from 'vue'
 import type { DashboardConfig } from './dashboardTypes'
 import { useLiveQuotes } from '@/composables/useLiveQuotes'
 
 import { useMarketStore } from '@/stores/market'
+import { usePageTabsStore } from '@/stores/pageTabs'
 import { INSTRUMENT_MAP } from '@/data/catalog'
 import type { TableColumn } from '@/components/data/types'
 import Panel from '@/components/ui/Panel.vue'
@@ -87,6 +88,33 @@ const chartSeries = computed(() => {
 const groupOptions = computed(() =>
   (props.config.groups ?? []).map((g) => ({ value: g.id, label: g.label })),
 )
+
+// Sync group tabs to the page-tabs store so the mobile navbar can render them
+const pageTabsStore = usePageTabsStore()
+
+watch(
+  [groupOptions, activeGroupId],
+  ([opts, active]) => {
+    if (opts.length > 0) {
+      pageTabsStore.setTabs(opts, active)
+    }
+  },
+  { immediate: true },
+)
+
+// Keep store in sync when the navbar changes the active tab
+watch(
+  () => pageTabsStore.active,
+  (val) => {
+    if (val && val !== activeGroupId.value && groupOptions.value.some((o) => o.value === val)) {
+      activeGroupId.value = val
+    }
+  },
+)
+
+onUnmounted(() => {
+  if (props.config.groups) pageTabsStore.clearTabs()
+})
 
 const cols: TableColumn<DashboardRow>[] = [
   { key: 'symbol', label: 'Symbol', width: '62px' },
@@ -243,8 +271,13 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
   }
 
   .dashboard--grouped {
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "topbar" "table" "chart";
+    grid-template-rows: auto auto;
+    grid-template-areas: "table" "chart";
+  }
+
+  /* topbar SegmentedControl moved to bottom navbar on mobile */
+  .dashboard-topbar {
+    display: none;
   }
 
   .dashboard-chart {
