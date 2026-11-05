@@ -234,6 +234,24 @@ function fmtTime(ts: number) { return ts ? new Date(ts).toISOString().slice(11, 
   grid-template-areas: "topbar topbar" "table chart";
 }
 
+@media (max-width: 639px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas: "table" "chart";
+    min-height: unset;
+    gap: 10px;
+  }
+
+  .dashboard--grouped {
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "topbar" "table" "chart";
+  }
+
+  .dashboard-chart {
+    min-height: 260px;
+  }
+}
+
 .dashboard-topbar {
   grid-area: topbar;
   display: flex;

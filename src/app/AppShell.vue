@@ -79,4 +79,31 @@ const pageTitle = computed(() => pageTitles[route.path] ?? 'MarketDeck')
   text-align: center;
   letter-spacing: 0.04em;
 }
+
+/* Mobile: stack vertically, sidebar becomes bottom nav */
+@media (max-width: 639px) {
+  .shell {
+    flex-direction: column;
+  }
+
+  .shell-body {
+    /* reserve space for bottom nav */
+    padding-bottom: 56px;
+  }
+
+  .shell-main {
+    padding: 12px 16px;
+    /* always allow scroll on mobile */
+    overflow-y: auto !important;
+    overflow-x: hidden;
+  }
+
+  .shell-main--no-pad {
+    padding: 0;
+  }
+
+  .shell-footer {
+    padding: 6px 16px;
+  }
+}
 </style>

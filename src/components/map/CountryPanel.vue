@@ -148,6 +148,20 @@ const languages = computed(() => {
 .panel-slide-enter-from,
 .panel-slide-leave-to  { transform: translateX(100%); }
 
+@media (max-width: 639px) {
+  .country-panel {
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    height: 55%;
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .panel-slide-enter-from,
+  .panel-slide-leave-to { transform: translateY(100%); }
+}
+
 .panel-header {
   display: flex;
   align-items: flex-start;

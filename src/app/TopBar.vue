@@ -80,4 +80,21 @@ onUnmounted(() => clearInterval(timer))
   color: var(--color-text-muted);
   font-variant-numeric: tabular-nums;
 }
+
+@media (max-width: 639px) {
+  .topbar {
+    padding: 0 16px;
+    height: 48px;
+    min-height: 48px;
+  }
+
+  .topbar-title {
+    font-size: 13px;
+    gap: 6px;
+  }
+
+  .topbar-clock {
+    display: none;
+  }
+}
 </style>
