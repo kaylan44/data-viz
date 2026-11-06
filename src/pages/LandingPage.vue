@@ -87,37 +87,8 @@ function onCardsScroll() {
           </div>
 
           <div class="card" role="listitem">
-            <div class="card-visual" aria-hidden="true">
-              <!-- Map miniature matching app: dark ocean #0d1a2e, countries #1e3a5f, selected amber -->
-              <svg viewBox="0 0 240 110" xmlns="http://www.w3.org/2000/svg">
-                <rect width="240" height="110" fill="#0d1a2e"/>
-                <!-- North America -->
-                <path d="M18,18 L38,15 L48,20 L52,30 L46,42 L38,50 L30,55 L22,52 L14,42 L12,30 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
-                <!-- Central America -->
-                <path d="M34,55 L42,52 L44,60 L40,66 L34,64 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
-                <!-- South America -->
-                <path d="M36,68 L50,65 L58,72 L60,85 L54,96 L44,98 L34,90 L30,78 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
-                <!-- Europe -->
-                <path d="M96,16 L114,14 L120,20 L118,30 L110,34 L100,32 L92,26 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
-                <!-- Africa -->
-                <path d="M98,36 L116,34 L122,44 L120,62 L112,74 L102,76 L92,66 L90,50 L92,38 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
-                <!-- Russia / North Asia -->
-                <path d="M122,10 L180,8 L192,16 L188,26 L170,30 L148,28 L128,24 L118,18 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
-                <!-- Middle East -->
-                <path d="M120,34 L138,32 L144,40 L138,48 L122,46 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
-                <!-- South Asia -->
-                <path d="M148,32 L170,30 L174,42 L166,54 L152,52 L144,42 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
-                <!-- Southeast Asia -->
-                <path d="M172,42 L190,38 L196,48 L188,58 L174,56 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
-                <!-- China highlighted (amber = selected country) -->
-                <path d="M168,18 L192,16 L196,28 L192,38 L174,42 L166,32 L162,22 Z" fill="#F5B800" stroke="#a07800" stroke-width="0.6"/>
-                <!-- Australia -->
-                <path d="M180,66 L202,62 L210,70 L208,82 L194,86 L180,80 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
-                <!-- Japan -->
-                <path d="M200,24 L208,22 L212,28 L206,34 L200,30 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
-                <!-- GDP label -->
-                <text x="12" y="106" fill="#5B667A" font-size="7" font-family="monospace">GDP per capita · 195 countries</text>
-              </svg>
+            <div class="card-visual card-visual--map" aria-hidden="true">
+              <img src="/landing-map.png" alt="" class="card-map-img" />
             </div>
             <div class="card-body">
               <h2 class="card-title">World Map</h2>
@@ -263,6 +234,20 @@ function onCardsScroll() {
   color: #E6EAF2;
   margin: 0 0 4px;
   font-family: 'Inter', sans-serif;
+}
+
+.card-visual--map {
+  overflow: hidden;
+  height: 110px;
+}
+
+.card-map-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  margin-top: -10px;
 }
 
 .card-desc {
