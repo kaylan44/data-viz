@@ -34,8 +34,8 @@ function onCardsScroll() {
       </div>
 
       <div class="hero">
-        <img src="/navbar-pic.svg" alt="MarketDeck" class="hero-logo" />
-        <h1 class="hero-title">MarketDeck</h1>
+        <img src="/navbar-pic.svg" alt="DataViz" class="hero-logo" />
+        <h1 class="hero-title">DataViz</h1>
         <p class="hero-tagline">Professional market data, beautifully visualized</p>
       </div>
 
