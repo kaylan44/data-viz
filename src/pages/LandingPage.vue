@@ -1,10 +1,27 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+const cardsRef = ref<HTMLElement | null>(null)
+const activeCard = ref(0)
 
 function enter() {
   router.push('/portfolio')
+}
+
+function scrollToCard(index: number) {
+  const el = cardsRef.value
+  if (!el) return
+  const cardWidth = el.scrollWidth / 3
+  el.scrollTo({ left: cardWidth * index, behavior: 'smooth' })
+}
+
+function onCardsScroll() {
+  const el = cardsRef.value
+  if (!el) return
+  const cardWidth = el.scrollWidth / 3
+  activeCard.value = Math.round(el.scrollLeft / cardWidth)
 }
 </script>
 
@@ -13,7 +30,7 @@ function enter() {
     <div class="landing-content">
       <div class="badge" aria-hidden="true">
         <span class="badge-dot" />
-        SIMULATED DATA
+        LIVE SIMULATED DATA
       </div>
 
       <div class="hero">
@@ -22,69 +39,98 @@ function enter() {
         <p class="hero-tagline">Professional market data, beautifully visualized</p>
       </div>
 
-      <div class="cards" role="list">
-        <div class="card" role="listitem">
-          <div class="card-visual card-visual--portfolio" aria-hidden="true">
-            <svg viewBox="0 0 240 110" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="60" cy="55" r="28" fill="none" stroke="#1E2736" stroke-width="10"/>
-              <circle cx="60" cy="55" r="28" fill="none" stroke="#F5B800" stroke-width="10" stroke-dasharray="52 124" stroke-dashoffset="-10"/>
-              <circle cx="60" cy="55" r="28" fill="none" stroke="#3B82F6" stroke-width="10" stroke-dasharray="38 124" stroke-dashoffset="-62"/>
-              <circle cx="60" cy="55" r="28" fill="none" stroke="#22C55E" stroke-width="10" stroke-dasharray="34 124" stroke-dashoffset="-100"/>
-              <rect x="104" y="22" width="8" height="8" rx="2" fill="#F5B800"/>
-              <text x="118" y="30" fill="#E6EAF2" font-size="8" font-family="monospace">AAPL  38%</text>
-              <rect x="104" y="38" width="8" height="8" rx="2" fill="#3B82F6"/>
-              <text x="118" y="46" fill="#E6EAF2" font-size="8" font-family="monospace">MSFT  27%</text>
-              <rect x="104" y="54" width="8" height="8" rx="2" fill="#22C55E"/>
-              <text x="118" y="62" fill="#E6EAF2" font-size="8" font-family="monospace">NVDA  25%</text>
-              <rect x="104" y="70" width="8" height="8" rx="2" fill="#8B5CF6"/>
-              <text x="118" y="78" fill="#E6EAF2" font-size="8" font-family="monospace">AMZN  10%</text>
-              <text x="60" y="52" fill="#8B96A9" font-size="6" text-anchor="middle" font-family="monospace">TOTAL</text>
-              <text x="60" y="62" fill="#E6EAF2" font-size="9" font-weight="bold" text-anchor="middle" font-family="monospace">$42.8K</text>
-            </svg>
+      <!-- Desktop: grid / Mobile: carousel -->
+      <div class="cards-wrapper">
+        <div class="cards" ref="cardsRef" @scroll.passive="onCardsScroll">
+          <div class="card" role="listitem">
+            <div class="card-visual" aria-hidden="true">
+              <svg viewBox="0 0 240 110" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="55" r="28" fill="none" stroke="#1E2736" stroke-width="10"/>
+                <circle cx="60" cy="55" r="28" fill="none" stroke="#F5B800" stroke-width="10" stroke-dasharray="52 124" stroke-dashoffset="-10"/>
+                <circle cx="60" cy="55" r="28" fill="none" stroke="#3B82F6" stroke-width="10" stroke-dasharray="38 124" stroke-dashoffset="-62"/>
+                <circle cx="60" cy="55" r="28" fill="none" stroke="#22C55E" stroke-width="10" stroke-dasharray="34 124" stroke-dashoffset="-100"/>
+                <rect x="104" y="22" width="8" height="8" rx="2" fill="#F5B800"/>
+                <text x="118" y="30" fill="#E6EAF2" font-size="8" font-family="monospace">AAPL  38%</text>
+                <rect x="104" y="38" width="8" height="8" rx="2" fill="#3B82F6"/>
+                <text x="118" y="46" fill="#E6EAF2" font-size="8" font-family="monospace">MSFT  27%</text>
+                <rect x="104" y="54" width="8" height="8" rx="2" fill="#22C55E"/>
+                <text x="118" y="62" fill="#E6EAF2" font-size="8" font-family="monospace">NVDA  25%</text>
+                <rect x="104" y="70" width="8" height="8" rx="2" fill="#8B5CF6"/>
+                <text x="118" y="78" fill="#E6EAF2" font-size="8" font-family="monospace">AMZN  10%</text>
+                <text x="60" y="52" fill="#8B96A9" font-size="6" text-anchor="middle" font-family="monospace">TOTAL</text>
+                <text x="60" y="62" fill="#E6EAF2" font-size="9" font-weight="bold" text-anchor="middle" font-family="monospace">$42.8K</text>
+              </svg>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Portfolio</h2>
+              <p class="card-desc">Track your holdings allocation and performance in real time.</p>
+            </div>
           </div>
-          <div class="card-body">
-            <h2 class="card-title">Portfolio</h2>
-            <p class="card-desc">Allocation et performance de votre portefeuille en temps réel.</p>
+
+          <div class="card" role="listitem">
+            <div class="card-visual" aria-hidden="true">
+              <svg viewBox="0 0 240 110" xmlns="http://www.w3.org/2000/svg">
+                <line x1="10" y1="40" x2="230" y2="40" stroke="#1E2736" stroke-width="0.5"/>
+                <line x1="10" y1="65" x2="230" y2="65" stroke="#1E2736" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="230" y2="90" stroke="#1E2736" stroke-width="0.5"/>
+                <polygon points="10,80 30,70 50,75 70,55 90,60 110,45 130,50 150,38 170,42 190,30 210,35 230,22 230,100 10,100" fill="#F5B800" opacity="0.06"/>
+                <polyline points="10,80 30,70 50,75 70,55 90,60 110,45 130,50 150,38 170,42 190,30 210,35 230,22" fill="none" stroke="#F5B800" stroke-width="1.5"/>
+                <text x="12" y="20" fill="#8B96A9" font-size="7" font-family="monospace">AAPL</text>
+                <text x="12" y="30" fill="#E6EAF2" font-size="9" font-weight="bold" font-family="monospace">$198.42</text>
+                <text x="80" y="20" fill="#22C55E" font-size="7" font-family="monospace">+1.84%</text>
+              </svg>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Equities</h2>
+              <p class="card-desc">Follow major stock indices with live ticks and historical charts.</p>
+            </div>
+          </div>
+
+          <div class="card" role="listitem">
+            <div class="card-visual" aria-hidden="true">
+              <!-- Map miniature matching app: dark ocean #0d1a2e, countries #1e3a5f, selected amber -->
+              <svg viewBox="0 0 240 110" xmlns="http://www.w3.org/2000/svg">
+                <rect width="240" height="110" fill="#0d1a2e"/>
+                <!-- North America -->
+                <path d="M18,18 L38,15 L48,20 L52,30 L46,42 L38,50 L30,55 L22,52 L14,42 L12,30 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
+                <!-- Central America -->
+                <path d="M34,55 L42,52 L44,60 L40,66 L34,64 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
+                <!-- South America -->
+                <path d="M36,68 L50,65 L58,72 L60,85 L54,96 L44,98 L34,90 L30,78 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
+                <!-- Europe -->
+                <path d="M96,16 L114,14 L120,20 L118,30 L110,34 L100,32 L92,26 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
+                <!-- Africa -->
+                <path d="M98,36 L116,34 L122,44 L120,62 L112,74 L102,76 L92,66 L90,50 L92,38 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
+                <!-- Russia / North Asia -->
+                <path d="M122,10 L180,8 L192,16 L188,26 L170,30 L148,28 L128,24 L118,18 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
+                <!-- Middle East -->
+                <path d="M120,34 L138,32 L144,40 L138,48 L122,46 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
+                <!-- South Asia -->
+                <path d="M148,32 L170,30 L174,42 L166,54 L152,52 L144,42 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
+                <!-- Southeast Asia -->
+                <path d="M172,42 L190,38 L196,48 L188,58 L174,56 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
+                <!-- China highlighted (amber = selected country) -->
+                <path d="M168,18 L192,16 L196,28 L192,38 L174,42 L166,32 L162,22 Z" fill="#F5B800" stroke="#a07800" stroke-width="0.6"/>
+                <!-- Australia -->
+                <path d="M180,66 L202,62 L210,70 L208,82 L194,86 L180,80 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
+                <!-- Japan -->
+                <path d="M200,24 L208,22 L212,28 L206,34 L200,30 Z" fill="#1e3a5f" stroke="#0a1628" stroke-width="0.6"/>
+                <!-- GDP label -->
+                <text x="12" y="106" fill="#5B667A" font-size="7" font-family="monospace">GDP per capita · 195 countries</text>
+              </svg>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">World Map</h2>
+              <p class="card-desc">Interactive world map with economic data for every country.</p>
+            </div>
           </div>
         </div>
 
-        <div class="card" role="listitem">
-          <div class="card-visual card-visual--equities" aria-hidden="true">
-            <svg viewBox="0 0 240 110" xmlns="http://www.w3.org/2000/svg">
-              <line x1="10" y1="40" x2="230" y2="40" stroke="#1E2736" stroke-width="0.5"/>
-              <line x1="10" y1="65" x2="230" y2="65" stroke="#1E2736" stroke-width="0.5"/>
-              <line x1="10" y1="90" x2="230" y2="90" stroke="#1E2736" stroke-width="0.5"/>
-              <polygon points="10,80 30,70 50,75 70,55 90,60 110,45 130,50 150,38 170,42 190,30 210,35 230,22 230,100 10,100" fill="#F5B800" opacity="0.06"/>
-              <polyline points="10,80 30,70 50,75 70,55 90,60 110,45 130,50 150,38 170,42 190,30 210,35 230,22" fill="none" stroke="#F5B800" stroke-width="1.5"/>
-              <text x="12" y="20" fill="#8B96A9" font-size="7" font-family="monospace">AAPL</text>
-              <text x="12" y="30" fill="#E6EAF2" font-size="9" font-weight="bold" font-family="monospace">$198.42</text>
-              <text x="80" y="20" fill="#22C55E" font-size="7" font-family="monospace">+1.84%</text>
-            </svg>
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">Equities</h2>
-            <p class="card-desc">Les 7 grandes capitalisations avec historique et ticks live.</p>
-          </div>
-        </div>
-
-        <div class="card" role="listitem">
-          <div class="card-visual card-visual--map" aria-hidden="true">
-            <svg viewBox="0 0 240 110" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="62" cy="45" rx="18" ry="22" fill="#1E3A2F" opacity="0.9"/>
-              <ellipse cx="68" cy="72" rx="12" ry="16" fill="#1E3A2F" opacity="0.9"/>
-              <ellipse cx="118" cy="38" rx="14" ry="16" fill="#22C55E" opacity="0.35"/>
-              <ellipse cx="122" cy="65" rx="12" ry="18" fill="#1E3A2F" opacity="0.9"/>
-              <ellipse cx="168" cy="40" rx="28" ry="18" fill="#22C55E" opacity="0.55"/>
-              <ellipse cx="186" cy="72" rx="12" ry="9" fill="#1E3A2F" opacity="0.9"/>
-              <circle cx="118" cy="38" r="4" fill="#F5B800" opacity="0.9"/>
-              <circle cx="168" cy="40" r="5" fill="#F5B800" opacity="0.7"/>
-              <text x="12" y="104" fill="#5B667A" font-size="7" font-family="monospace">GDP per capita · 195 pays</text>
-            </svg>
-          </div>
-          <div class="card-body">
-            <h2 class="card-title">World Map</h2>
-            <p class="card-desc">Carte mondiale interactive avec données économiques par pays.</p>
-          </div>
+        <!-- Mobile carousel dots -->
+        <div class="carousel-dots" aria-hidden="true">
+          <span class="dot" :class="{ active: activeCard === 0 }" @click="scrollToCard(0)" />
+          <span class="dot" :class="{ active: activeCard === 1 }" @click="scrollToCard(1)" />
+          <span class="dot" :class="{ active: activeCard === 2 }" @click="scrollToCard(2)" />
         </div>
       </div>
 
@@ -298,18 +344,61 @@ function enter() {
   50% { opacity: 0.4; }
 }
 
+/* Carousel dots (hidden on desktop) */
+.carousel-dots {
+  display: none;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1E2736;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dot.active {
+  background: #F5B800;
+  transform: scale(1.2);
+}
+
 /* Mobile */
 @media (max-width: 640px) {
   .landing-content {
     gap: 2rem;
   }
 
-  .cards {
-    grid-template-columns: 1fr;
+  .cards-wrapper {
+    width: 100%;
   }
 
-  .card-visual svg {
-    height: 100px;
+  .cards {
+    display: flex;
+    grid-template-columns: unset;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+
+  .cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 80vw;
+    scroll-snap-align: center;
+  }
+
+  .carousel-dots {
+    display: flex;
   }
 }
 </style>
