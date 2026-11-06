@@ -5,42 +5,42 @@ export const router = createRouter({
   routes: [
     {
       path: '/',
-      meta: { title: 'MarketDeck' },
+      meta: { title: 'DataViz' },
       component: () => import('@/pages/LandingPage.vue'),
     },
     {
       path: '/equities',
-      meta: { title: 'Equities — MarketDeck' },
+      meta: { title: 'Equities — DataViz' },
       component: () => import('@/pages/EquitiesPage.vue'),
     },
     {
       path: '/oil',
-      meta: { title: 'Oil & LNG Markets — MarketDeck' },
+      meta: { title: 'Oil & LNG Markets — DataViz' },
       component: () => import('@/pages/OilPage.vue'),
     },
     {
       path: '/overview',
-      meta: { title: 'Markets Overview — MarketDeck' },
+      meta: { title: 'Markets Overview — DataViz' },
       component: () => import('@/pages/OverviewPage.vue'),
     },
     {
       path: '/map',
-      meta: { title: 'World Map — MarketDeck' },
+      meta: { title: 'World Map — DataViz' },
       component: () => import('@/pages/MapPage.vue'),
     },
     {
       path: '/portfolio',
-      meta: { title: 'Portfolio — MarketDeck' },
+      meta: { title: 'Portfolio — DataViz' },
       component: () => import('@/pages/PortfolioPage.vue'),
     },
     {
       path: '/styleguide',
-      meta: { title: 'Style Guide — MarketDeck' },
+      meta: { title: 'Style Guide — DataViz' },
       component: () => import('@/pages/StyleguidePage.vue'),
     },
   ],
 })
 
 router.afterEach((to) => {
-  document.title = (to.meta.title as string | undefined) ?? 'MarketDeck'
+  document.title = (to.meta.title as string | undefined) ?? 'DataViz'
 })
