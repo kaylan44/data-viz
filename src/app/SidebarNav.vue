@@ -23,9 +23,9 @@ function isActive(path: string) {
     <div class="sidebar-top">
       <!-- Logo mark -->
       <div class="sidebar-logo-slot">
-        <div class="sidebar-logo" title="MarketDeck">
+        <RouterLink to="/" class="sidebar-logo" title="MarketDeck">
           <img src="/navbar-pic.svg" alt="MarketDeck" class="logo-img" />
-        </div>
+        </RouterLink>
       </div>
 
       <!-- Main nav -->

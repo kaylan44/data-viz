@@ -5,7 +5,8 @@ export const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/equities',
+      meta: { title: 'MarketDeck' },
+      component: () => import('@/pages/LandingPage.vue'),
     },
     {
       path: '/equities',
